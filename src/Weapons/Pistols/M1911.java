@@ -1,7 +1,7 @@
 /*
- * 
- * 
- * 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Weapons.Pistols;
 
@@ -9,9 +9,9 @@ import Weapons.Weapon;
 
 /**
  *
- * @author HsCanales <00136317@uca.edu.sv>
+ * @author uca
  */
-public class DE implements Weapon {
+public class M1911 implements Weapon {
 
     public String name;
     public int ammo, ammoActual, ammoLimite;
@@ -19,27 +19,27 @@ public class DE implements Weapon {
     private String reload;
     public int id;
 
-    public DE() {
-        this.name = "Desert Eagle";
-        this.ammo = 15;
-        this.ammoActual = 7;
-        this.ammoLimite = 7;
-        this.damage = 50;
-        this.reload = "slow";
-        this.distance = 12;
-        this.id = 1;
+    public M1911() {
+        this.name = "Colt 1911";
+        this.ammo = 36;
+        this.ammoActual = 18;
+        this.ammoLimite = 18;
+        this.damage=10;
+        this.distance= 12;
+        this.reload="mid";
+        this.id=2;
     }
 
     @Override
     public void recargar() {
-            int recargadas = this.ammoActual - this.ammoLimite;
-        this.ammo-= recargadas;
-        this.ammoActual= 7;
+        int recargadas = this.ammoActual - this.ammoLimite;
+        this.ammo -= recargadas;
+        this.ammoActual = 7;
     }
 
     @Override
     public void disparar() {
-        if(this.ammo>0){
+       if(this.ammo>0){
         if (this.ammoActual > 0) {
             this.ammoActual--;
             //verificar si hay algun enemigo en el rango;
@@ -55,18 +55,20 @@ public class DE implements Weapon {
 
     @Override
     public int getAmmo() {
-        return ammoActual;
+    
+    return this.ammoActual;
     }
 
     @Override
     public void recolectarAmmo(int ammo) {
-        this.ammo += ammo;
+       this.ammo += ammo;
 
     }
 
     @Override
     public int getID() {
-        return id;
+     
+    return id;
     }
 
 }
