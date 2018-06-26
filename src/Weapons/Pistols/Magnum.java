@@ -23,19 +23,21 @@ public class Magnum implements Weapon {
         this.name = "44. Magnum";
         this.ammo = 24;
         this.ammoActual = 6;
-        this.ammoLimite = 7;
+        this.ammoLimite = 6;
         this.damage = 50;
         this.distance = 12;
         this.reload = "slow";
         this.id = 3;
-
     }
 
     @Override
     public void recargar() {
-        int recargadas = this.ammoActual - this.ammoLimite;
+        int recargadas = this.ammoLimite - this.ammoActual;
+        if(this.ammo - recargadas < 0){
+            recargadas = this.ammo;
+        }
         this.ammo -= recargadas;
-        this.ammoActual = 7;
+        this.ammoActual = ammoActual+recargadas;
     }
 
     @Override
@@ -44,10 +46,12 @@ public class Magnum implements Weapon {
             if (this.ammoActual > 0) {
                 this.ammoActual--;
                 //verificar si hay algun enemigo en el rango;
-            } else {
+            } 
+            else {
                 recargar();
             }
-        } else {
+        } 
+        else {
             System.out.println("No tienes municion");
         }
     }
@@ -66,5 +70,4 @@ public class Magnum implements Weapon {
     public int getID() {
         return id;
     }
-
 }

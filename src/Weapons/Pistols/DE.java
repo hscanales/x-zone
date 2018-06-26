@@ -32,25 +32,28 @@ public class DE implements Weapon {
 
     @Override
     public void recargar() {
-            int recargadas = this.ammoActual - this.ammoLimite;
-        this.ammo-= recargadas;
-        this.ammoActual= 7;
+        int recargadas = this.ammoLimite - this.ammoActual;
+        if(this.ammo - recargadas < 0){
+            recargadas = this.ammo;
+        }
+        this.ammo -= recargadas;
+        this.ammoActual = ammoActual+recargadas;
     }
 
     @Override
     public void disparar() {
-        if(this.ammo>0){
-        if (this.ammoActual > 0) {
-            this.ammoActual--;
-            //verificar si hay algun enemigo en el rango;
-        } else {
-            recargar();
-        }    
-        }else{
+        if(this.ammo > 0){
+            if (this.ammoActual > 0) {
+                this.ammoActual--;
+                //verificar si hay algun enemigo en el rango;
+            } 
+            else {
+                recargar();
+            }    
+        }
+        else{
             System.out.println("No tienes municion");
         }
-        
-
     }
 
     @Override
@@ -61,12 +64,10 @@ public class DE implements Weapon {
     @Override
     public void recolectarAmmo(int ammo) {
         this.ammo += ammo;
-
     }
 
     @Override
     public int getID() {
         return id;
     }
-
 }
