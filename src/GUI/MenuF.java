@@ -5,28 +5,25 @@
  */
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
  *
- * @author Joshua
+ * @author LN710Q
  */
-public class LoginF extends JFrame {
+public class MenuF extends JFrame {
     
-    public LoginF(){
+    public MenuF(){
         EjecutarL();
     }
     
     public void EjecutarL(){
         
-        add(new Login());
+        add(new Menu());
         setResizable(false);
         pack();
         
-        setTitle("Pantalla de Inicio");
+        setTitle("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }

@@ -10,25 +10,23 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
  *
- * @author Joshua
+ * @author LN710Q
  */
-public class Login extends JPanel {
-    
-    public int WIDTH = 300, WIDTHTF = 120, WIDTHB = 80;
-    public int HEIGHT = 300, HEIGHTTF = 30, HEIGHTB= 30;
+public class Menu extends JPanel {
+    public int WIDTH = 600, WIDTHTF = 120, WIDTHB = 80;
+    public int HEIGHT = 600, HEIGHTTF = 30, HEIGHTB= 30;
     public JTextField textF1;
     public JLabel lblF1, lblF2;
     public JButton button;
     public String user;
     
-    public Login(){
+    public Menu(){
         textF1 = new JTextField();
         textF1.setBounds(120, 110, WIDTHTF, HEIGHTTF);
         lblF1 = new JLabel("Bienvenido a X-Zone");
@@ -38,16 +36,6 @@ public class Login extends JPanel {
         textF1.setEditable(true);
         button = new JButton("Entrar al juego");
         button.setBounds(new Rectangle(120,150,80,20));
-        button.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent arg0){
-                user= textF1.getText();
-                System.out.println(user);
-                JFrame menu = new MenuF();
-                menu.setVisible(true);
-                setVisible(false);
-            }
-        });
         add(textF1);
         add(lblF1);
         add(lblF2);
