@@ -28,7 +28,6 @@ public class LoginF extends JFrame {
         
         setTitle("Pantalla de Inicio");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
     }
     
 }

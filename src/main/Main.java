@@ -19,8 +19,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        /*JFrame login = new LoginF();
-        login.setVisible(true);*/
+        JFrame login = new LoginF();
+        login.setVisible(true);
     }
     
 }

@@ -5,11 +5,14 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
  *
- * @author LN710Q
+ * @author Joshua
  */
 public class MenuF extends JFrame {
     
