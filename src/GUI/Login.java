@@ -7,13 +7,16 @@ package GUI;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -26,9 +29,13 @@ public class Login extends JPanel {
     public JTextField textF1;
     public JLabel lblF1, lblF2;
     public JButton button;
-    public String user;
+    public String user,us;
     
     public Login(){
+        us = Eventos();
+    }
+    
+    private String Eventos(){
         textF1 = new JTextField();
         textF1.setBounds(120, 110, WIDTHTF, HEIGHTTF);
         lblF1 = new JLabel("Bienvenido a X-Zone");
@@ -42,10 +49,12 @@ public class Login extends JPanel {
             @Override
             public void actionPerformed(ActionEvent arg0){
                 user= textF1.getText();
-                System.out.println(user);
                 JFrame menu = new MenuF();
                 menu.setVisible(true);
                 setVisible(false);
+                JComponent comp = (JComponent) arg0.getSource();
+                Window win = SwingUtilities.getWindowAncestor(comp);
+                win.dispose();
             }
         });
         add(textF1);
@@ -54,5 +63,6 @@ public class Login extends JPanel {
         add(button);
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
+        return user;
     }
 }
