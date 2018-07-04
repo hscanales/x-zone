@@ -69,6 +69,7 @@ public class Menu extends JPanel {
                 JComponent comp = (JComponent) arg0.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
+                System.exit(0);
             }
         });
         add(lblF1);

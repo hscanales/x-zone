@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -49,12 +50,19 @@ public class Login extends JPanel {
             @Override
             public void actionPerformed(ActionEvent arg0){
                 user= textF1.getText();
+                if(user.isEmpty()){
+                    JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "Ingrese Nickname para continuar", "Error de login",
+                        JOptionPane.INFORMATION_MESSAGE);
+                }else{
                 JFrame menu = new MenuF();
                 menu.setVisible(true);
                 setVisible(false);
                 JComponent comp = (JComponent) arg0.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
-                win.dispose();
+                win.dispose();    
+                }
+                
             }
         });
         add(textF1);
