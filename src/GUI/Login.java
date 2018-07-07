@@ -31,7 +31,7 @@ public class Login extends JFrame {
     public JTextField textF1;
     public JLabel fondo;
     public JButton button;
-    public String user,us;
+    public static String user,us;
     
     public Login(){
         super("Pantalla de Inicio");
@@ -39,11 +39,12 @@ public class Login extends JFrame {
         setLayout(null);
         setResizable(false);
         setSize(720,480);
+        this.setLocationRelativeTo(null);
         Formulario();
         Container container = getContentPane();
+        container.add(button);
         container.add(fondo);
         container.add(textF1);
-        container.add(button);
         Eventos();
     }
     
@@ -70,8 +71,7 @@ public class Login extends JFrame {
                     JOptionPane.INFORMATION_MESSAGE);
                 }
                 else{
-                    JFrame menu = new MenuF();
-                    menu.setVisible(true);
+                    new Menu().setVisible(true);
                     setVisible(false);
                     JComponent comp = (JComponent) arg0.getSource();
                     Window win = SwingUtilities.getWindowAncestor(comp);
