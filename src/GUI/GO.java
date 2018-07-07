@@ -5,12 +5,23 @@
  */
 package GUI;
 
-import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Joshua
  */
-public class GO extends JPanel {
+public class GO extends JFrame {
     
+    public JLabel payer;
+    
+    public GO(){
+        super("Pantalla de Inicio");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+        setResizable(false);
+        setSize(1080,720);
+        this.setLocationRelativeTo(null);
+    }
 }
