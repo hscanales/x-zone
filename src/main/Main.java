@@ -5,7 +5,8 @@
  */
 package main;
 
-import GUI.LoginF;
+import GUI.Login;
+import GUI.ViewDatabase;
 import javax.swing.JFrame;
 
 /**
@@ -19,8 +20,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JFrame login = new LoginF();
-        login.setVisible(true);
+        //JFrame login = new Login();
+        //login.setVisible(true);
+        
     }
     
 }
