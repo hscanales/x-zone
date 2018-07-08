@@ -81,7 +81,11 @@ public class Menu extends JFrame {
         btn2.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                setVisible(false);
+                JComponent comp = (JComponent) e.getSource();
+                Window win = SwingUtilities.getWindowAncestor(comp);
+                win.dispose();
+                new InventaryGui().setVisible(true);
             }
         });
     }

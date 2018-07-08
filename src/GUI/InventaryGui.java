@@ -37,7 +37,12 @@ public class InventaryGui extends JFrame{
     Inventary Inventa;
 
     public InventaryGui(){
-        
+        super("Pantalla de Inicio");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+        setResizable(false);
+        setSize(720,480);
+        this.setLocationRelativeTo(null);
         lblF1 = new JLabel("Inventary");
         lblF1.setBounds(80, 10, WIDTHTF, HEIGHTB);
         lblF2 = new JLabel("Object no 1:");
@@ -119,7 +124,7 @@ public class InventaryGui extends JFrame{
                    
          
            
-       System.out.println(e.getActionCommand());
+       //System.out.println(e.getActionCommand());
            int foo = Integer.parseInt(e.getActionCommand());
           //Creacion del JPopupmenu 
            JPopupMenu menu = new JPopupMenu("Menu");

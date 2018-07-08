@@ -44,7 +44,7 @@ public class Inventary {
             useObjectOfList(this.Object1List.get(ObjecttoUse));
         }
         catch(Exception e){
-            System.out.print("sorry");
+            System.out.print("no object here bruh\n");
         }
         
     }
