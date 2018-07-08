@@ -30,20 +30,21 @@ public class GO1 extends JFrame {
     
     public JLabel personaje;
     public JLabel fondo;
-    public int WIDHTP = 30, HEIGHTP = 50;
-    public int contr = 1, contl =1, contu = 1, contd = 1;
+    public int WIDHTP = 32, HEIGHTP = 32;
+    public int contr = 1, contl = 1, contu = 1, contd = 1;
     public Personaje Xander;
     public Xander jugador = new Xander();
     public static boolean flag;
     ArrayList<String[]> mapa;
-    public int widht = 36, height = 36, posx, posy;
+    public float widht = 32, height = 32;
+    public float posx, posy;
     
     public GO1() throws IOException{
         super("Nivel 1");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setResizable(false);
-        setSize(1080,720);
+        setSize(960,608);
         this.setLocationRelativeTo(null);
         Formulario();
         addKeyListener(new TAdapter());
@@ -59,13 +60,13 @@ public class GO1 extends JFrame {
         Xander = jugador.getPersonaje();
         
         personaje = new JLabel();
-        personaje.setBounds(50, 570, WIDHTP, HEIGHTP);
+        personaje.setBounds(64, 512, WIDHTP, HEIGHTP);
         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right1.png")));
         Xander.setPlayer(personaje);
         
         fondo = new JLabel();
-        fondo.setBounds(0, 0, 1080, 720);
-        fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/Mpa1.jpg")));
+        fondo.setBounds(0, 0, 960, 608);
+        fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/Mpa1.png")));
         
         
     }
@@ -81,15 +82,13 @@ public class GO1 extends JFrame {
             if (key == KeyEvent.VK_LEFT) {
                 if (personaje.getX() >= 10 && personaje.getX() < 1050) {
                     //if((m.getX()-30 > n.getX() || m.getX() < n.getX()) || dify >= 30){
-                    posx = (personaje.getX()-10)/widht;
-                    posy = (personaje.getY())/height;
-                    //System.out.println(posx);
-                    //System.out.println(posy);
+                    posx = (personaje.getX())/widht;
+                    posy = (personaje.getY()+16)/height;
                     if(Posicion(posx, posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Left"+contl+".png")));
                         personaje.setLocation(personaje.getX() - 10, personaje.getY());
                         contl++;
-                        if(contl == 5){
+                        if(contl == 4){
                             contl = 1;
                         }
                     }
@@ -103,15 +102,13 @@ public class GO1 extends JFrame {
             if (key == KeyEvent.VK_RIGHT) {
                 if (personaje.getX() >= 0 && personaje.getX() <= 1080) {
                     //if((m.getX()+30 < n.getX() || m.getX() > n.getX()) || dify >= 30){
-                    posx = (personaje.getX()+10)/widht;
-                    posy = (personaje.getY())/height;
-                    //System.out.println(posx);
-                    //System.out.println(posy);
+                    posx = (personaje.getX()+32)/widht;
+                    posy = (personaje.getY()+16)/height;
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right"+contr+".png")));
                         personaje.setLocation(personaje.getX() + 10, personaje.getY());
                         contr++;
-                        if(contr == 5){
+                        if(contr == 4){
                             contr = 1;
                         }
                     }
@@ -125,15 +122,13 @@ public class GO1 extends JFrame {
             if (key == KeyEvent.VK_UP) {
                 if (personaje.getY() >= 10 && personaje.getY() < 720) {
                     //if((m.getY()-30 > n.getY() || m.getY() < n.getY()) || difx >= 30){
-                    posx = (personaje.getX())/widht;
-                    posy = (personaje.getY()-10)/height;
-                    //System.out.println(posx);
-                    //System.out.println(posy);
+                    posx = (personaje.getX()+16)/widht;
+                    posy = (personaje.getY())/height;
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Up"+contu+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() - 10);
                         contu++;
-                        if(contu == 5){
+                        if(contu == 4){
                             contu = 1;
                         }
                     }
@@ -147,15 +142,13 @@ public class GO1 extends JFrame {
             if (key == KeyEvent.VK_DOWN) {
                 if (personaje.getY() >= 0 && personaje.getY() <= 680) {
                     //if((m.getY()+30 < n.getY() || m.getY() > n.getY()) || difx >= 30){
-                    posx = (personaje.getX())/widht;
-                    posy = (personaje.getY()+10)/height;
-                    //System.out.println(posx);
-                    //System.out.println(posy);
+                    posx = (personaje.getX()+16)/widht;
+                    posy = (personaje.getY()+32)/height;
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Down"+contd+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() + 10);
                         contd++;
-                        if(contd == 5){
+                        if(contd == 4){
                             contd = 1;
                         }
                     }
@@ -187,11 +180,12 @@ public class GO1 extends JFrame {
         }
     }
     
-    public boolean Posicion(int posx,float posy){
-        
+    public boolean Posicion(float posx,float posy){
+        //System.out.println(posy);
         int y = (int) Math.floor(posy);
+        int x = (int) Math.floor(posx);
         String[] aux = mapa.get(y);
-        if("1".equals(aux[posx])){
+        if("1".equals(aux[x])){
             return true;
         }
         return false;
