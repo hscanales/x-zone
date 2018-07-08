@@ -42,9 +42,8 @@ public class Login extends JFrame {
         this.setLocationRelativeTo(null);
         Formulario();
         Container container = getContentPane();
-        container.add(fondo);
         container.add(button);
-        
+        container.add(fondo);
         container.add(textF1);
         Eventos();
     }
