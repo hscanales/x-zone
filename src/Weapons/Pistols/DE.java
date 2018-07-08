@@ -6,46 +6,42 @@
 package Weapons.Pistols;
 
 import Weapons.Weapon;
+import Weapons.WeaponPlan;
 
 /**
  *
  * @author HsCanales <00136317@uca.edu.sv>
  */
-public class DE implements Weapon {
-
-    public String name;
-    public int ammo, ammoActual, ammoLimite;
-    private int damage, distance;
-    private String reload;
-    public int id;
+public class DE implements WeaponPlan {
+    
+    private static Weapon arma = new Weapon();
 
     public DE() {
-        this.name = "Desert Eagle";
-        this.ammo = 15;
-        this.ammoActual = 7;
-        this.ammoLimite = 7;
-        this.damage = 50;
-        this.reload = "slow";
-        this.distance = 12;
-        this.id = 1;
+        arma.setAmmo(15);
+        arma.setName("Desert Eagle");
+        arma.setAmmoActual(7);
+        arma.setAmmoLimite(7);
+        arma.setDamage(50);
+        arma.setReload("slow");
+        arma.setDistance(12);
+        arma.setId(1);
     }
 
     @Override
     public void recargar() {
-        int recargadas = this.ammoLimite - this.ammoActual;
-        if(this.ammo - recargadas < 0){
-            recargadas = this.ammo;
+        int recarga = arma.getAmmoLimite()-arma.getAmmoActual();
+        if(arma.getAmmo() - recarga < 0){
+            recarga = arma.getAmmo();
         }
-        this.ammo -= recargadas;
-        this.ammoActual = ammoActual+recargadas;
+        arma.setAmmo(arma.getAmmo()-recarga);
+        arma.setAmmoActual(arma.getAmmoActual()+recarga);
     }
 
     @Override
     public void disparar() {
-        if(this.ammo > 0){
-            if (this.ammoActual > 0) {
-                this.ammoActual--;
-                //verificar si hay algun enemigo en el rango;
+        if(arma.getAmmo() > 0){
+            if (arma.getAmmoActual() > 0) {
+                arma.setAmmoActual(arma.getAmmoActual()-1);
             } 
             else {
                 recargar();
@@ -58,16 +54,21 @@ public class DE implements Weapon {
 
     @Override
     public int getAmmo() {
-        return ammoActual;
+        return arma.getAmmoActual();
     }
 
     @Override
     public void recolectarAmmo(int ammo) {
-        this.ammo += ammo;
+        arma.setAmmo(arma.getAmmo()+ammo);
     }
 
     @Override
     public int getID() {
-        return id;
+        return arma.getId();
+    }
+
+    @Override
+    public Weapon getWeapon() {
+        return arma;
     }
 }

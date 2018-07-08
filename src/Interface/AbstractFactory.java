@@ -6,7 +6,7 @@
 package Interface;
 
 import Items.Item;
-import Weapons.Weapon;
+import Weapons.WeaponPlan;
 
 /**
  *
@@ -15,5 +15,5 @@ import Weapons.Weapon;
 public interface AbstractFactory {
     Item itemCreator(String type);
     
-    Weapon weaponCreator(String type);
+    WeaponPlan weaponCreator(String type);
 }

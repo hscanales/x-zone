@@ -7,6 +7,7 @@ package main;
 
 import GUI.Login;
 import GUI.ViewDatabase;
+import Structures.Wall;
 import javax.swing.JFrame;
 
 /**
@@ -19,9 +20,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //JFrame login = new Login();
-        //login.setVisible(true);
+        JFrame login = new Login();
+        login.setVisible(true);
+        
+        
+       
+        
         
     }
     

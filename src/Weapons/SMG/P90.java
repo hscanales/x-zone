@@ -6,12 +6,13 @@
 package Weapons.SMG;
 
 import Weapons.Weapon;
+import Weapons.WeaponPlan;
 
 /**
  *
  * @author MaPache
  */
-public class P90 implements Weapon{
+public class P90 implements WeaponPlan{
     
     public String name;
     public int ammo, ammoActual, ammoLimite;
@@ -70,4 +71,9 @@ public class P90 implements Weapon{
     public int getID() {
         return id;
     }   
+
+    @Override
+    public Weapon getWeapon() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

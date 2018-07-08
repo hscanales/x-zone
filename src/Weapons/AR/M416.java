@@ -6,12 +6,13 @@
 package Weapons.AR;
 
 import Weapons.Weapon;
+import Weapons.WeaponPlan;
 
 /**
  *
  * @author MaPache
  */
-public class M416 implements Weapon{
+public class M416 implements WeaponPlan{
     
     public String name;
     public int ammo, ammoActual, ammoLimite;
@@ -69,5 +70,10 @@ public class M416 implements Weapon{
     @Override
     public int getID() {
         return id;
+    }
+
+    @Override
+    public Weapon getWeapon() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -6,12 +6,13 @@
 package Weapons.Pistols;
 
 import Weapons.Weapon;
+import Weapons.WeaponPlan;
 
 /**
  *
  * @author uca
  */
-public class M1911 implements Weapon {
+public class M1911 implements WeaponPlan {
 
     public String name;
     public int ammo, ammoActual, ammoLimite;
@@ -69,5 +70,10 @@ public class M1911 implements Weapon {
     @Override
     public int getID() {
         return id;
+    }
+
+    @Override
+    public Weapon getWeapon() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

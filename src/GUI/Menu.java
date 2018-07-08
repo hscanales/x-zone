@@ -74,7 +74,7 @@ public class Menu extends JFrame {
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
-                new GO().setVisible(true);
+                new GO1().setVisible(true);
             }
         });
         

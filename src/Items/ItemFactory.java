@@ -9,7 +9,7 @@ import Interface.AbstractFactory;
 import Items.Heal.Heal;
 import Items.Key.BossKey;
 import Items.Key.Key;
-import Weapons.Weapon;
+import Weapons.WeaponPlan;
 
 /**
  *
@@ -31,7 +31,7 @@ public class ItemFactory implements AbstractFactory{
     }
 
     @Override
-    public Weapon weaponCreator(String type) {
+    public WeaponPlan weaponCreator(String type) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

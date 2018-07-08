@@ -23,7 +23,7 @@ public class WeaponFactory implements AbstractFactory{
     }
 
     @Override
-    public Weapon weaponCreator(String type) {
+    public WeaponPlan weaponCreator(String type) {
     switch(type.toLowerCase()){
         case "m416":
             return new M416();
