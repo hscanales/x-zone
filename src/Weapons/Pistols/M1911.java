@@ -14,39 +14,35 @@ import Weapons.WeaponPlan;
  */
 public class M1911 implements WeaponPlan {
 
-    public String name;
-    public int ammo, ammoActual, ammoLimite;
-    private int damage, distance;
-    private String reload;
-    public int id;
-
+    private static Weapon arma = new Weapon();
     public M1911() {
-        this.name = "Colt 1911";
-        this.ammo = 36;
-        this.ammoActual = 18;
-        this.ammoLimite = 18;
-        this.damage = 10;
-        this.distance = 12;
-        this.reload = "mid";
-        this.id = 2;
+        
+         arma.setAmmo(36);
+        arma.setName("Colt 1911");
+        arma.setAmmoActual(18);
+        arma.setAmmoLimite(18);
+        arma.setDamage(10);
+        arma.setReload("mid");
+        arma.setDistance(12);
+        arma.setId(2);
     }
 
+    
     @Override
     public void recargar() {
-        int recargadas = this.ammoLimite - this.ammoActual;
-        if(this.ammo - recargadas < 0){
-            recargadas = this.ammo;
+        int recarga = arma.getAmmoLimite()-arma.getAmmoActual();
+        if(arma.getAmmo() - recarga < 0){
+            recarga = arma.getAmmo();
         }
-        this.ammo -= recargadas;
-        this.ammoActual = ammoActual+recargadas;
+        arma.setAmmo(arma.getAmmo()-recarga);
+        arma.setAmmoActual(arma.getAmmoActual()+recarga);
     }
 
     @Override
     public void disparar() {
-        if(this.ammo > 0){
-            if (this.ammoActual > 0) {
-                this.ammoActual--;
-                //verificar si hay algun enemigo en el rango;
+        if(arma.getAmmo() > 0){
+            if (arma.getAmmoActual() > 0) {
+                arma.setAmmoActual(arma.getAmmoActual()-1);
             } 
             else {
                 recargar();
@@ -59,21 +55,22 @@ public class M1911 implements WeaponPlan {
 
     @Override
     public int getAmmo() {
-        return this.ammoActual;
+        return arma.getAmmoActual();
     }
 
     @Override
     public void recolectarAmmo(int ammo) {
-        this.ammo += ammo;
+        arma.setAmmo(arma.getAmmo()+ammo);
     }
 
     @Override
     public int getID() {
-        return id;
+        return arma.getId();
     }
 
     @Override
     public Weapon getWeapon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return arma;
     }
+   
 }
