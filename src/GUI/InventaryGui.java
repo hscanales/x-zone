@@ -6,6 +6,8 @@
 package GUI;
 import Inventary.Inventary;
 import Items.Item;
+import java.awt.Color;
+import java.awt.Container;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -32,9 +34,10 @@ public class InventaryGui extends JFrame{
     public int WIDTH = 700, WIDTHTF = 120, WIDTHB = 80;
     public int HEIGHT = 700, HEIGHTTF = 30, HEIGHTB= 30;
     public JTextField textF1;
-    public JLabel lblF1, lblF2,lblF3,lblF4,lblF5,lblF6;
+    public JLabel fondo,lblF1, lblF2,lblF3,lblF4,lblF5,lblF6;
     public JButton button;
-    Inventary Inventa;
+    private Inventary Inventa;
+ 
 
     public InventaryGui(){
         super("Pantalla de Inicio");
@@ -43,18 +46,7 @@ public class InventaryGui extends JFrame{
         setResizable(false);
         setSize(720,480);
         this.setLocationRelativeTo(null);
-        lblF1 = new JLabel("Inventary");
-        lblF1.setBounds(80, 10, WIDTHTF, HEIGHTB);
-        lblF2 = new JLabel("Object no 1:");
-        lblF2.setBounds(50, 40, WIDTHB, HEIGHTB);
-        lblF3 = new JLabel("Object no 2:");
-        lblF3.setBounds(50+100, 40, WIDTHB, HEIGHTB);
-        lblF4 = new JLabel("Object no 3:");
-        lblF4.setBounds(50+100*2, 40, WIDTHB, HEIGHTB);
-        lblF5 = new JLabel("Object no 4:");
-        lblF5.setBounds(50+100*3, 40, WIDTHB, HEIGHTB);
-        lblF6 = new JLabel("Object no 5:");
-        lblF6.setBounds(50+100*4, 40, WIDTHB, HEIGHTB);
+        setLabels();
         button = new JButton("CREATE OBJECT1");
         button.setBounds(10, 400, WIDTHB, HEIGHTB);
         button.addActionListener(new ActionListener(){
@@ -94,16 +86,12 @@ public class InventaryGui extends JFrame{
             }
             
         });
-        add(button);
-        add(lblF1);
-        add(lblF2);
-         add(lblF3);
-          add(lblF4);
-           add(lblF5);
-            add(lblF6);
+        
+        
+        addComponents();    
         setLayout(null);
         Inventa= new Inventary();
-        inventaryFill();
+        
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
     }
     /*
@@ -111,7 +99,8 @@ public class InventaryGui extends JFrame{
     */
     public void inventaryFill(){
 
-               
+               Container ButtonL;
+        ButtonL = getContentPane();
         
         for(int i = 0;i<5;i++ ){
             
@@ -139,8 +128,13 @@ public class InventaryGui extends JFrame{
         menu.add("DROP OBJECT").addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ak) {
+                try{
+                Inventa.DropObject(Inventa.getObject(foo));    
+                }
+                catch(Exception e){
+                    System.out.print("No hay objeto a eliminar");
+                }
                 
-                Inventa.DropObject(Inventa.getObject(foo));
             }
                     
                 });
@@ -153,7 +147,51 @@ public class InventaryGui extends JFrame{
             });
            
            // agrega botton actual
-            add(g);
+           
+            ButtonL.add(g);
         }
     }
+    public void setLabels(){
+        fondo = new JLabel();
+        fondo.setBounds(0, 0, 720, 480);
+        fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/fondoMenu.png")));
+        
+        lblF1 = new JLabel("Inventary");
+        lblF1.setBounds(80, 10, WIDTHTF, HEIGHTB);
+        lblF1.setFont(new java.awt.Font("Arial", 1, 22));
+        lblF1.setForeground(Color.white);
+        lblF2 = new JLabel("Object no 1:");
+        lblF2.setBounds(50, 40, WIDTHB, HEIGHTB);
+        lblF2.setFont(new java.awt.Font("Arial", 1, 13));
+        lblF2.setForeground(Color.white);
+        
+        lblF3 = new JLabel("Object no 2:");
+        lblF3.setBounds(50+100, 40, WIDTHB, HEIGHTB);
+        lblF3.setFont(new java.awt.Font("Arial", 1, 13));
+        lblF3.setForeground(Color.white);
+        lblF4 = new JLabel("Object no 3:");
+        lblF4.setBounds(50+100*2, 40, WIDTHB, HEIGHTB);
+        lblF4.setFont(new java.awt.Font("Arial", 1, 13));
+        lblF4.setForeground(Color.white);
+        lblF5 = new JLabel("Object no 4:");
+        lblF5.setBounds(50+100*3, 40, WIDTHB, HEIGHTB);
+        lblF5.setFont(new java.awt.Font("Arial", 1, 13));
+        lblF5.setForeground(Color.white);
+        lblF6 = new JLabel("Object no 5:");
+        lblF6.setBounds(50+100*4, 40, WIDTHB, HEIGHTB);
+        lblF6.setFont(new java.awt.Font("Arial", 1, 13));
+        lblF6.setForeground(Color.white);
+    }
+    public void addComponents(){
+        add(button);
+        add(lblF1);
+        add(lblF2);
+         add(lblF3);
+          add(lblF4);
+           add(lblF5);
+            add(lblF6);
+            inventaryFill();
+            add(fondo);
+    }
+            
 }
