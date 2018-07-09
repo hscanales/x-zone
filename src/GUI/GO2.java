@@ -7,6 +7,8 @@ package GUI;
 
 import Enemigo.Movimiento.EnemigoMov;
 import GUI.Mapa.MapReader;
+import Items.Item;
+import Items.ItemFactory;
 import java.awt.Container;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -26,13 +28,14 @@ import personaje.Xander;
 import java.applet.AudioClip;
 import javax.swing.JOptionPane;
 import main.Global;
+import main.Main;
 
 /**
  *
  * @author Joshua
  */
 public class GO2 extends JFrame {
-    
+    public int flag3 = 10;
     public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4, balae;
     public JLabel fondo;
     //public JButton inv;
@@ -45,7 +48,7 @@ public class GO2 extends JFrame {
     ArrayList<String[]> mapa;
     public float widht = 32, height = 32;
     public float posx, posy;
-    public AudioClip music;
+    public AudioClip music,zelda;
     
     EnemigoMov emov1, emov2, emov3, emov4;
     
@@ -239,7 +242,15 @@ public class GO2 extends JFrame {
         if("1".equals(aux[x])){
             return true;
         }
-        if("2".equals(aux[x])){
+        if("3".equals(aux[x])){
+            zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
+            zelda.play();
+            flag3=11;
+            ItemFactory g = new ItemFactory();
+            Item l = g.itemCreator("bosskey");
+            Main.i.addObject1(l);
+        }
+        if("2".equals(aux[x])&&flag3==11){
             music.stop();
             music=null;
             dispose();
