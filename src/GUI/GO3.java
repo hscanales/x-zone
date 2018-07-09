@@ -6,6 +6,7 @@
 package GUI;
 
 import Enemigo.Movimiento.EnemigoMov;
+import Enemigo.Movimiento.JefeMov;
 import GUI.Mapa.MapReader;
 import java.awt.Container;
 import java.awt.event.KeyAdapter;
@@ -34,10 +35,9 @@ import javafx.scene.media.MediaPlayer;
  */
 public class GO3 extends JFrame {
     
-    public JLabel personaje, enemigo1;
+    public JLabel personaje, enemigo, bala;
     public JLabel fondo;
-    //public JButton inv;
-    public int WIDTHP = 32, HEIGHTP = 32;
+    public int WIDTHP = 80, HEIGHTP = 80;
     public int WIDTHB = 140, HEIGHTB = 50;
     public int contr = 1, contl = 1, contu = 1, contd = 1;
     public Personaje Xander;
@@ -48,8 +48,6 @@ public class GO3 extends JFrame {
     public float posx, posy;
     public AudioClip music;
     
-    EnemigoMov emov1, emov2, emov3, emov4;
-    
     public GO3() throws IOException{
         super("NIVEL 3");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,23 +55,22 @@ public class GO3 extends JFrame {
         setResizable(false);
         setSize(960,608);
         this.setLocationRelativeTo(null);
-        Formulario();
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Final BOSS $6.99  \n https://www.paypal.me/hectorcanalessv \n", "DLC",
             JOptionPane.INFORMATION_MESSAGE);
         music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Toxicity [8 Bit Cover Tribute to System of a Down] - 8 Bit Universe.wav"));
         music.play();
+        Formulario();
         addKeyListener(new TAdapter());
         Container container = getContentPane();
         container.add(personaje);
-        /*container.add(enemigo1);*/
+        container.add(enemigo);
+        container.add(bala);
         container.add(fondo);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz3.txt");
-        //emov1 = new EnemigoMov(enemigo1, personaje, 384, 480, 160, 320, Xander);
-        //emov1.start();
-
-        
+        JefeMov jmov = new JefeMov(enemigo, bala,  personaje, Xander);
+        jmov.start();
     }
     
     public void Formulario(){
@@ -85,11 +82,12 @@ public class GO3 extends JFrame {
         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Down1.png")));
         Xander.setPlayer(personaje);
         
-        enemigo1 = new JLabel();
-        enemigo1.setBounds(384, 160, WIDTHP, HEIGHTP);
-        enemigo1.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
-        //inv = new JButton();
-        //inv.setBounds(920, 10, WIDTHB, HEIGHTB);
+        bala = new JLabel();
+        bala.setBounds(0, 0, 64, 64);
+        
+        enemigo = new JLabel();
+        enemigo.setBounds(384, 160, WIDTHP, HEIGHTP);
+        enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/ENDown1.png")));
         
         fondo = new JLabel();
         fondo.setBounds(0, 0, 960, 608);
