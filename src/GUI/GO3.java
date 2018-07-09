@@ -72,6 +72,9 @@ public class GO3 extends JFrame {
         mapa = MapReader.reader("src/GUI/Mapa/matriz3.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 384, 480, 160, 320, Xander);
         emov1.start();
+        JOptionPane.showMessageDialog(frame, "Final BOSS $6.99  \n https://www.paypal.me/hectorcanalessv \n", "DLC",
+            JOptionPane.INFORMATION_MESSAGE);
+        
     }
     
     public void Formulario(){

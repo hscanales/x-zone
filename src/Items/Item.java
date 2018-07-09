@@ -5,13 +5,15 @@
  */
 package Items;
 
+import java.net.URL;
+
 /**
  *
  * @author pretc
  */
 public interface Item {
     void use();
-    int get();
+    URL get();
     boolean isHealing();
     boolean isKey();
     boolean itsATrap();

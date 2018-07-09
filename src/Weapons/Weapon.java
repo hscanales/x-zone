@@ -5,6 +5,8 @@
  */
 package Weapons;
 
+import java.net.URL;
+
 /**
  *
  * @author MaPache
@@ -16,6 +18,7 @@ public class Weapon {
     private int damage, distance;
     private String reload;
     public int id;
+    private URL source;
 
     public String getName() {
         return name;
@@ -80,6 +83,15 @@ public class Weapon {
     public void setId(int id) {
         this.id = id;
     }
+
+    public URL getSource() {
+        return source;
+    }
+
+    public void setSource(URL source) {
+        this.source = source;
+    }
+    
     
     
     

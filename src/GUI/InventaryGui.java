@@ -6,6 +6,7 @@
 package GUI;
 import Inventary.Inventary;
 import Items.Item;
+import Items.ItemFactory;
 import java.awt.Color;
 import java.awt.Container;
 
@@ -14,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,7 +39,7 @@ public class InventaryGui extends JFrame{
     public int HEIGHT = 700, HEIGHTTF = 30, HEIGHTB= 30;
     public JTextField textF1;
     public JLabel fondo,lblF1, lblF2,lblF3,lblF4,lblF5,lblF6;
-    public JLabel button;
+    public JLabel button,button2;
     public JButton out;
     private Inventary Inventa;
     ArrayList<JButton> A = new ArrayList<>();
@@ -58,10 +60,10 @@ public class InventaryGui extends JFrame{
                 dispose();
             }
         });
-        button = new JLabel();
+        button = new JLabel("heal");
         button.setBounds(10, 400, WIDTHB, HEIGHTB);
         
-        button.setIcon(new ImageIcon(getClass().getResource("/recursos/box.png")));
+       // button.setIcon(new ImageIcon(getClass().getResource("/recursos/box.png")));
         button.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -74,34 +76,11 @@ public class InventaryGui extends JFrame{
 
             @Override
             public void mousePressed(MouseEvent e) {
-               
-            Item l = new Item() {
-                    @Override
-                    public void use() {
-                        System.out.print("hola");
-                    }
-
-                    @Override
-                    public int get() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean isHealing() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean isKey() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean itsATrap() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                };
+            ItemFactory g = new ItemFactory();
+            
+            Item l =g.itemCreator("heal");
                 Inventa.addObject1(l);    
+                updateInventaryIcons();
             }
 
             @Override
@@ -116,46 +95,41 @@ public class InventaryGui extends JFrame{
             public void mouseExited(MouseEvent e) {
                System.out.print("dsad");}
         });
-        /*
-        button.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                
-                Crea objeto de prueba a agregar
-                
-                
-                Item l = new Item() {
-                    @Override
-                    public void use() {
-                        System.out.print("hola");
-                    }
-
-                    @Override
-                    public int get() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean isHealing() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean isKey() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-
-                    @Override
-                    public boolean itsATrap() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                };
-                Inventa.addObject1(l);
-            }
-            
-        });
+        button2 = new JLabel("key");
+        button2.setBounds(200, 400, WIDTHB, HEIGHTB);
         
-        */
+      //  button2.setIcon(new ImageIcon(getClass().getResource("/recursos/box.png")));
+        button2.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+//            Crea objeto de prueba a agregar
+            System.out.print("dsad");
+                
+                
+                
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            ItemFactory g = new ItemFactory();
+            
+            Item l =g.itemCreator("key");
+                Inventa.addObject1(l);    
+                updateInventaryIcons();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                System.out.print("dsad"); }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                System.out.print("dsad");}
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+               System.out.print("dsad");}
+        });
         addComponents();
         updateInventaryIcons();
         setLayout(null);
@@ -196,6 +170,7 @@ public class InventaryGui extends JFrame{
             @Override
             public void actionPerformed(ActionEvent ae) {
                 Inventa.useObjectOfList(foo);
+                updateInventaryIcons();
             }
                     
                 });
@@ -208,6 +183,7 @@ public class InventaryGui extends JFrame{
                 catch(Exception e){
                     System.out.print("No hay objeto a eliminar");
                 }
+                updateInventaryIcons();
                 
             }
                     
@@ -215,6 +191,7 @@ public class InventaryGui extends JFrame{
     
                
            menu.show(g, g.getWidth()/2, g.getHeight()/2);
+           updateInventaryIcons();
            }
 
                
@@ -267,12 +244,20 @@ public class InventaryGui extends JFrame{
     public void updateInventaryIcons(){
         int cont =  0; 
         for(JButton Jactual: this.A){
-            
-             Jactual.setIcon(new ImageIcon(getClass().getResource("/recursos/box2.png")));
+            try{
+             Jactual.setIcon(new ImageIcon(Inventa.getObject(cont).get()));
+                
+            }
+            catch(Exception e){
+                System.out.print("failed");
+                Jactual.setIcon(new ImageIcon(getClass().getResource("/recursos/box.png")));
+            }
+             cont++;
         }
     }
     public void addComponents(){
         add(button);
+        add(button2);
         add(lblF1);
         add(lblF2);
          add(lblF3);

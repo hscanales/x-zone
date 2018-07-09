@@ -6,6 +6,7 @@
 package Items.Key;
 
 import Items.Item;
+import java.net.URL;
 
 /**
  *
@@ -21,9 +22,9 @@ public class BossKey implements Item{
     }
 
     @Override
-    public int get() {
-    
-    return 1;
+    public URL get() {
+    URL d = getClass().getResource("/recursos/heal.png");
+    return d; 
     }
 
     @Override
