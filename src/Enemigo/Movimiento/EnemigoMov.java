@@ -9,6 +9,7 @@ import Enemigo.Enemigo;
 import Enemigo.Soldado;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import personaje.Personaje;
 
 /**
  *
@@ -19,12 +20,12 @@ public class EnemigoMov extends Thread{
     private JLabel enemigo, player;
     private int x1, x2, y1, y2;
     private int contr = 1, contl = 1, contd = 1, contu = 1;
-    private int s;
+    private int vel, atk, pv;
     private int difx, dify;
     Soldado soldado;
     Enemigo enemy;
     
-    public EnemigoMov(JLabel enemigo, JLabel personaje, int x1, int x2, int y1, int y2){
+    public EnemigoMov(JLabel enemigo, JLabel personaje, int x1, int x2, int y1, int y2, Personaje xander){
         this.enemigo = enemigo;
         this.player = personaje;
         this.x1 = x1;
@@ -34,7 +35,9 @@ public class EnemigoMov extends Thread{
         soldado = new Soldado();
         soldado.CrearEnemigo();
         enemy = soldado.getEnemigo();
-        s = enemy.getVelocidad();
+        vel = enemy.getVelocidad();
+        atk = (int) enemy.getAtaque().get(0);
+        pv = xander.getVida();
     }
     
     @Override
@@ -46,7 +49,7 @@ public class EnemigoMov extends Thread{
                 enemigo.setLocation(i, enemigo.getY());
                 SetDif();
                 try {
-                    sleep(s);
+                    sleep(vel);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,7 +63,7 @@ public class EnemigoMov extends Thread{
                 enemigo.setLocation(enemigo.getX(), i);
                 SetDif();
                 try {
-                    sleep(s);
+                    sleep(vel);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -74,7 +77,7 @@ public class EnemigoMov extends Thread{
                 enemigo.setLocation(i, enemigo.getY());
                 SetDif();
                 try {
-                    sleep(s);
+                    sleep(vel);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -88,7 +91,7 @@ public class EnemigoMov extends Thread{
                 enemigo.setLocation(enemigo.getX(), i);
                 SetDif();
                 try {
-                    sleep(s);
+                    sleep(vel);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }

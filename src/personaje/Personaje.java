@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 public class Personaje {
     
     private String nombre;
+    private int vida;
     private ArrayList arma;
     private int ataque;
     private int vel;
@@ -26,6 +27,14 @@ public class Personaje {
 
     public void setPlayer(JLabel player) {
         this.player = player;
+    }
+    
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
     }
     
     public String getNombre() {

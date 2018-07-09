@@ -60,13 +60,13 @@ public class GO1 extends JFrame {
         container.add(fondo);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz1.txt");
-        emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128);
+        emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128, Xander);
         emov1.start();
-        emov2 = new EnemigoMov(enemigo2, personaje, 512, 704, 96, 256);
+        emov2 = new EnemigoMov(enemigo2, personaje, 512, 704, 96, 256, Xander);
         emov2.start();
-        emov3 = new EnemigoMov(enemigo3, personaje, 800, 864, 160, 288);
+        emov3 = new EnemigoMov(enemigo3, personaje, 800, 864, 160, 288, Xander);
         emov3.start();
-        emov4 = new EnemigoMov(enemigo4, personaje, 544, 640, 448, 544);
+        emov4 = new EnemigoMov(enemigo4, personaje, 544, 640, 448, 544, Xander);
         emov4.start();
     }
     
