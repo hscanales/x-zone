@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import personaje.Personaje;
@@ -31,7 +32,9 @@ public class GO1 extends JFrame {
     
     public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4;
     public JLabel fondo;
+    //public JButton inv;
     public int WIDTHP = 32, HEIGHTP = 32;
+    public int WIDTHB = 140, HEIGHTB = 50;
     public int contr = 1, contl = 1, contu = 1, contd = 1;
     public Personaje Xander;
     public Xander jugador = new Xander();
@@ -58,6 +61,7 @@ public class GO1 extends JFrame {
         container.add(enemigo3);
         container.add(enemigo4);
         container.add(fondo);
+        //container.add(inv);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz1.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128, Xander);
@@ -91,6 +95,8 @@ public class GO1 extends JFrame {
         enemigo4 = new JLabel();
         enemigo4.setBounds(544, 448, WIDTHP, HEIGHTP);
         enemigo4.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
+        //inv = new JButton();
+        //inv.setBounds(920, 10, WIDTHB, HEIGHTB);
         
         fondo = new JLabel();
         fondo.setBounds(0, 0, 960, 608);
@@ -186,6 +192,9 @@ public class GO1 extends JFrame {
                         down = true;*/
                     //}
                 }
+            }
+            if (key == KeyEvent.VK_I){
+                new InventaryGui().setVisible(true);
             }
             /*if(key == KeyEvent.VK_SPACE){
                 if(right){

@@ -38,17 +38,26 @@ public class InventaryGui extends JFrame{
     public JTextField textF1;
     public JLabel fondo,lblF1, lblF2,lblF3,lblF4,lblF5,lblF6;
     public JLabel button;
+    public JButton out;
     private Inventary Inventa;
     ArrayList<JButton> A = new ArrayList<>();
 
     public InventaryGui(){
-        super("Pantalla de Inicio");
+        super("Inventario");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setResizable(false);
         setSize(720,480);
         this.setLocationRelativeTo(null);
         setLabels();
+        out = new JButton("Regresar");
+        out.setBounds(620, 10, 90, HEIGHTB);
+        out.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
         button = new JLabel();
         button.setBounds(10, 400, WIDTHB, HEIGHTB);
         
@@ -272,6 +281,7 @@ public class InventaryGui extends JFrame{
             add(lblF6);
             inventaryFill();
             add(fondo);
+            add(out);
     }
             
 }

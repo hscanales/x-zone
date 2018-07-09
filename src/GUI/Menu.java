@@ -78,7 +78,7 @@ public class Menu extends JFrame {
         v.addItem("Vertigo");
         v.addItem("Stop music");
         music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Gran Turismo 4 Music Game Rip - Main Menu Theme 3.wav"));
-        music.play();
+        music.loop();
         btn1.setBounds(290, 110, WIDTHB, HEIGHTB);
         btn2.setBounds(290, 220, WIDTHB, HEIGHTB);
         btn3.setBounds(290, 330, WIDTHB, HEIGHTB);
@@ -93,6 +93,7 @@ public class Menu extends JFrame {
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
+                music.stop();
                 try {
                     new GO1().setVisible(true);
                 } catch (IOException ex) {
@@ -104,11 +105,14 @@ public class Menu extends JFrame {
         btn2.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
+                JFrame frame = new JFrame();
+                JOptionPane.showMessageDialog(frame, "", "Instrucciones",
+                        JOptionPane.INFORMATION_MESSAGE);
+                /*setVisible(false);
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
-                new InventaryGui().setVisible(true);
+                new InventaryGui().setVisible(true);*/
             }
         });
         btn3.addActionListener(new ActionListener(){
@@ -143,9 +147,6 @@ public class Menu extends JFrame {
                 if(name == "Vertigo"){
                     music = java.applet.Applet.newAudioClip(getClass().getResource("/music/DOLF & Yellow Claw - Vertigo (JAEGER Remix) www.my-free-mp3.net .wav"));
                     music.play();
-                }
-                if(name == "Stop music"){
-                    music.stop();
                 }
             }
             catch(Exception e){

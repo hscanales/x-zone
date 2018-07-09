@@ -5,10 +5,17 @@
  */
 package GUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Joshua
  */
-public class GOver {
+public class GOver extends JFrame {
+    
+    public GOver(){
+        
+    }
+    
     
 }
