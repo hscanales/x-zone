@@ -24,7 +24,7 @@ public class Disparar extends Thread{
     int atk;
     int contf = 1;
     int dist = 150; 
-    public boolean flag = true;
+    public boolean flag = true, disp = false;
     
     public Disparar(JLabel enemigo, JLabel player, JLabel bala, Personaje xander, Enemigo enemy){
         this.enemigo = enemigo;
@@ -172,6 +172,9 @@ public class Disparar extends Thread{
                 if(difx >= 30 || dify >= dist){
                     flag = true;
                 }
+            }
+            if(xander.getVida() == 0){
+                disp = true;
             }
         }
     }
