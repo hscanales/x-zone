@@ -59,7 +59,7 @@ public class GO3 extends JFrame {
         this.setLocationRelativeTo(null);
         Formulario();
         JFrame frame = new JFrame();
-        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Toxicity [8 Bit Cover Tribute to System of a Down] - 8 Bit Universe.wav"));
         music.play();
         addKeyListener(new TAdapter());
         Container container = getContentPane();

@@ -55,7 +55,7 @@ public class GO1 extends JFrame {
         setResizable(false);
         setSize(960,608);
         this.setLocationRelativeTo(null);
-        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Glamour of the Kill - Blood Drunk (Official Music Video).wav"));
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Africa [8 Bit Tribute to Toto] - 8 Bit Universe.wav"));
         music.play();
         Formulario();
         addKeyListener(new TAdapter());

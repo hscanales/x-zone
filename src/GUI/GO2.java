@@ -55,7 +55,7 @@ public class GO2 extends JFrame {
         setResizable(false);
         setSize(960,608);
         this.setLocationRelativeTo(null);
-        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/115 Elena Siegman Call of Duty Black Ops - Kino Der Toten Easter Egg song Kevin Sherwood.wav"));
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Take On Me (8 Bit Remix Cover Version) [Tribute to A-ha] - 8 Bit Universe.wav"));
         music.play();
         Formulario();
         addKeyListener(new TAdapter());
@@ -199,43 +199,7 @@ public class GO2 extends JFrame {
             if (key == KeyEvent.VK_I){
                 new InventaryGui().setVisible(true);
             }
-            
-            if (key == KeyEvent.VK_1){
-                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
-                music.loop();
-            }
-            if (key == KeyEvent.VK_2){
-                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/DOLF & Yellow Claw - Vertigo (JAEGER Remix) www.my-free-mp3.net .wav"));
-                music.loop();
-            }
-            if (key == KeyEvent.VK_P){
-                try{
-                    music.stop();
-                }
-                catch(Exception f){
-                    JFrame frame = new JFrame();
-                    JOptionPane.showMessageDialog(frame, "No esta reproduciendo nada", "Error de reproduccion",
-                        JOptionPane.INFORMATION_MESSAGE);
-                }
-            /*if(key == KeyEvent.VK_SPACE){
-                if(right){
-                    disparar.Setter(1);
-                    disparar.start();
-                }
-                if(left){
-                    disparar.Setter(2);
-                    disparar.start();
-                }
-                if(up){
-                    disparar.Setter(3);
-                    disparar.start();
-                }
-                if(down){
-                    disparar.Setter(4);
-                    disparar.start();
-                }
-            }*/
-        }
+
     }
 }
     
