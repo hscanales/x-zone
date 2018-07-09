@@ -94,7 +94,12 @@ public class GOver extends JFrame {
                 setVisible(false);
                 dispose();
                 
-                new GO1().setVisible(true);
+                try {
+                    new GO1().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(GOver.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
                 
             }
         });

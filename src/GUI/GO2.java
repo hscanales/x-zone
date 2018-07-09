@@ -245,7 +245,6 @@ public class GO2 extends JFrame {
             return true;
         }
         if("3".equals(aux[x])&&f==true){
-            //LAS FUNCIONES CON XE son la imagen, solo coloca la pos donde queres la llave
             xe.setBounds(32, 32, WIDTHP, HEIGHTP);
             xe.setIcon(new ImageIcon(getClass().getResource("/recursos/key.png")));
             zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
