@@ -55,6 +55,8 @@ public class GO1 extends JFrame {
         setResizable(false);
         setSize(960,608);
         this.setLocationRelativeTo(null);
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Glamour of the Kill - Blood Drunk (Official Music Video).wav"));
+        music.play();
         Formulario();
         addKeyListener(new TAdapter());
         Container container = getContentPane();
@@ -110,7 +112,6 @@ public class GO1 extends JFrame {
     
     
     private class TAdapter extends KeyAdapter {
-        
         @Override
         public void keyPressed(KeyEvent e) {
             /*Disparo disparar = new Disparo(m, n, bala1, 10, 1);
@@ -200,25 +201,7 @@ public class GO1 extends JFrame {
             if (key == KeyEvent.VK_I){
                 new InventaryGui().setVisible(true);
             }
-            
-            if (key == KeyEvent.VK_1){
-                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
-                music.loop();
-            }
-            if (key == KeyEvent.VK_2){
-                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/DOLF & Yellow Claw - Vertigo (JAEGER Remix) www.my-free-mp3.net .wav"));
-                music.loop();
-            }
-            if (key == KeyEvent.VK_P){
-                try{
-                    music.stop();
-                }
-                catch(Exception f){
-                    JFrame frame = new JFrame();
-                    JOptionPane.showMessageDialog(frame, "No esta reproduciendo nada", "Error de reproduccion",
-                        JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
+
             /*if(key == KeyEvent.VK_SPACE){
                 if(right){
                     disparar.Setter(1);
@@ -249,6 +232,8 @@ public class GO1 extends JFrame {
             return true;
         }
         if("2".equals(aux[x])){
+            music.stop();
+            music=null;
             dispose();
             try {
                     new GO2().setVisible(true);

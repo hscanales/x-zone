@@ -24,6 +24,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import personaje.Personaje;
 import personaje.Xander;
+import java.applet.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  *
@@ -43,6 +46,7 @@ public class GO3 extends JFrame {
     ArrayList<String[]> mapa;
     public float widht = 32, height = 32;
     public float posx, posy;
+    public AudioClip music;
     
     EnemigoMov emov1, emov2, emov3, emov4;
     
@@ -57,6 +61,8 @@ public class GO3 extends JFrame {
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Final BOSS $6.99", "DLC",
             JOptionPane.INFORMATION_MESSAGE);
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
+        music.play();
         addKeyListener(new TAdapter());
         Container container = getContentPane();
         container.add(personaje);
