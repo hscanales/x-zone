@@ -61,16 +61,7 @@ public class GO1 extends JFrame {
         music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Africa [8 Bit Tribute to Toto] - 8 Bit Universe.wav"));
         music.play();
         Formulario();
-        addKeyListener(new TAdapter());
-        Container container = getContentPane();
-        container.add(personaje);
-        container.add(enemigo1);
-        container.add(enemigo2);
-        container.add(enemigo3);
-        container.add(enemigo4);
-        container.add(balae);
-        container.add(fondo);
-        //container.add(key);
+        addKeyListener(new TAdapter());       
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz1.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128, Xander, balae);
@@ -81,6 +72,14 @@ public class GO1 extends JFrame {
         emov3.start();
         emov4 = new EnemigoMov(enemigo4, personaje, 544, 640, 448, 544, Xander, balae);
         emov4.start();
+        Container container = getContentPane();
+        container.add(personaje);
+        container.add(enemigo1);
+        container.add(enemigo2);
+        container.add(enemigo3);
+        container.add(enemigo4);
+        container.add(balae);
+        container.add(fondo);
     }
     
     public void Formulario(){
@@ -115,7 +114,7 @@ public class GO1 extends JFrame {
         fondo.setBounds(0, 0, 960, 608);
         fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/Mpa1.png")));
         
-        
+            
     }
     
     

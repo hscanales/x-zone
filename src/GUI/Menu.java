@@ -102,7 +102,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame();
-                JOptionPane.showMessageDialog(frame, "", "Instrucciones",
+                JOptionPane.showMessageDialog(frame, "Movimiento: Flechas de Direccion \nDisparo: Barra Espaciadora \nInventario: I", "Instrucciones",
                         JOptionPane.INFORMATION_MESSAGE);
                 /*setVisible(false);
                 JComponent comp = (JComponent) e.getSource();
