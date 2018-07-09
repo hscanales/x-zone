@@ -242,7 +242,7 @@ public class GO2 extends JFrame {
         if("1".equals(aux[x])){
             return true;
         }
-        if("3".equals(aux[x])){
+        if("3".equals(aux[x])&&flag3==10){
             zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
             zelda.play();
             flag3=11;

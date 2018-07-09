@@ -21,7 +21,7 @@ public static Inventary i = new Inventary();
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Global.setInicio();
+        Global.setInicio();
 
     /**
      *
@@ -30,8 +30,8 @@ public static Inventary i = new Inventary();
         JFrame login = new Login();
         login.setVisible(true);
         
-      //  JFrame g = new GOver();
-       // g.setVisible(true);
+        /*JFrame g = new GOver();
+        g.setVisible(true);*/
         
     }
     
