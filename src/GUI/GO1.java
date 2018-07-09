@@ -115,7 +115,6 @@ public class GO1 extends JFrame {
         fondo = new JLabel();
         fondo.setBounds(0, 0, 960, 608);
         fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/Mpa1.png")));
-        
             
     }
     
@@ -126,6 +125,7 @@ public class GO1 extends JFrame {
             /*Disparo disparar = new Disparo(m, n, bala1, 10, 1);
             int difx = (int) Math.sqrt(Math.pow(m.getX()-n.getX(), 2));
             int dify = (int) Math.sqrt(Math.pow(m.getY()-n.getY(), 2));*/
+            System.out.println(Xander.getVida());
             int key = e.getKeyCode();
             if (key == KeyEvent.VK_LEFT) {
                 if (personaje.getX() >= 10 && personaje.getX() < 1050) {
