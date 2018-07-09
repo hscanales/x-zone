@@ -214,6 +214,12 @@ public class GO2 extends JFrame {
             if (key == KeyEvent.VK_I){
                 new InventaryGui().setVisible(true);
             }
+            if(emov1.dispa || emov2.dispa || emov3.dispa || emov4.dispa){
+                dispose();            
+                GOver g = new GOver();   
+                g.setVisible(true);
+                
+            }
 
         }
     }
@@ -255,6 +261,7 @@ public class GO2 extends JFrame {
             ItemFactory g = new ItemFactory();
             Item l = g.itemCreator("bosskey");
             Main.i.addObject1(l);
+            Global.inicio+=50;
         }
         if("2".equals(aux[x])&&flag3==11){
             music.stop();

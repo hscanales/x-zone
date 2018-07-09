@@ -26,7 +26,7 @@ public class Xander {
         Xander.setNombre("Xander");
         Xander.setAtaque(arma.get(0).getDamage());
         Xander.setVel(0);
-        Xander.setVida(100);
+        Xander.setVida(100000);
     }
     
     public Personaje getPersonaje(){
