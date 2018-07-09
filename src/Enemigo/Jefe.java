@@ -11,9 +11,9 @@ import java.util.ArrayList;
  *
  * @author MaPache
  */
-public class Jefe implements Enemigo{
+public class Jefe implements EnemigoWorker{
 
-    private static EnemigoWorker Jefe = new EnemigoWorker();
+    private static Enemigo Jefe = new Enemigo();
     
     @Override
     public void CrearEnemigo() {
@@ -40,7 +40,7 @@ public class Jefe implements Enemigo{
     }
 
     @Override
-    public EnemigoWorker getEnemigo() {
+    public Enemigo getEnemigo() {
         return Jefe;
     }
     

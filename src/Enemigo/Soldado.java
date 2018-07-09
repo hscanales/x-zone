@@ -12,9 +12,9 @@ import java.lang.Integer;
  *
  * @author MaPache
  */
-public class Soldado implements Enemigo{
+public class Soldado implements EnemigoWorker{
     
-    private static EnemigoWorker Soldado = new EnemigoWorker();
+    private static Enemigo Soldado = new Enemigo();
 
     @Override
     public void CrearEnemigo() {
@@ -29,7 +29,7 @@ public class Soldado implements Enemigo{
         Soldado.setNombre("Soldado genoma");
         Soldado.setAtaque(ataque);
         Soldado.setVida(100);
-        Soldado.setVelocidad(75);
+        Soldado.setVelocidad(125);
         Soldado.setCant(1);
         Soldado.setVelBolitas(bolitas);
         Soldado.setXy(xy);
@@ -37,7 +37,7 @@ public class Soldado implements Enemigo{
     }
     
     @Override
-    public EnemigoWorker getEnemigo() {
+    public Enemigo getEnemigo() {
         return Soldado;
     }   
 }

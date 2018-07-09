@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Enemigo.Movimiento.EnemigoMov;
 import GUI.Mapa.MapReader;
 import java.awt.Container;
 import java.awt.event.KeyAdapter;
@@ -28,9 +29,9 @@ import personaje.Xander;
  */
 public class GO1 extends JFrame {
     
-    public JLabel personaje;
+    public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4;
     public JLabel fondo;
-    public int WIDHTP = 32, HEIGHTP = 32;
+    public int WIDTHP = 32, HEIGHTP = 32;
     public int contr = 1, contl = 1, contu = 1, contd = 1;
     public Personaje Xander;
     public Xander jugador = new Xander();
@@ -38,6 +39,8 @@ public class GO1 extends JFrame {
     ArrayList<String[]> mapa;
     public float widht = 32, height = 32;
     public float posx, posy;
+    
+    EnemigoMov emov1, emov2, emov3, emov4;
     
     public GO1() throws IOException{
         super("Nivel 1");
@@ -50,9 +53,21 @@ public class GO1 extends JFrame {
         addKeyListener(new TAdapter());
         Container container = getContentPane();
         container.add(personaje);
+        container.add(enemigo1);
+        container.add(enemigo2);
+        container.add(enemigo3);
+        container.add(enemigo4);
         container.add(fondo);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz1.txt");
+        emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128);
+        emov1.start();
+        emov2 = new EnemigoMov(enemigo2, personaje, 512, 704, 96, 256);
+        emov2.start();
+        emov3 = new EnemigoMov(enemigo3, personaje, 800, 864, 160, 288);
+        emov3.start();
+        emov4 = new EnemigoMov(enemigo4, personaje, 544, 640, 448, 544);
+        emov4.start();
     }
     
     public void Formulario(){
@@ -60,9 +75,22 @@ public class GO1 extends JFrame {
         Xander = jugador.getPersonaje();
         
         personaje = new JLabel();
-        personaje.setBounds(64, 512, WIDHTP, HEIGHTP);
+        personaje.setBounds(64, 512, WIDTHP, HEIGHTP);
         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right1.png")));
         Xander.setPlayer(personaje);
+        
+        enemigo1 = new JLabel();
+        enemigo1.setBounds(288, 32, WIDTHP, HEIGHTP);
+        enemigo1.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
+        enemigo2 = new JLabel();
+        enemigo2.setBounds(512, 96, WIDTHP, HEIGHTP);
+        enemigo2.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
+        enemigo3 = new JLabel();
+        enemigo3.setBounds(800, 160, WIDTHP, HEIGHTP);
+        enemigo3.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
+        enemigo4 = new JLabel();
+        enemigo4.setBounds(544, 448, WIDTHP, HEIGHTP);
+        enemigo4.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
         
         fondo = new JLabel();
         fondo.setBounds(0, 0, 960, 608);
