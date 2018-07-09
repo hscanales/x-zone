@@ -63,6 +63,7 @@ public class Disparar extends Thread{
                         }
                         if(i == player.getX() && dify <= 16){
                             xander.setVida(xander.getVida()-atk);
+                            System.out.println(xander.getVida());
                             bala.setIcon(new ImageIcon(getClass().getResource("/recursos/Off.png")));
                             break;
                         }
@@ -94,6 +95,7 @@ public class Disparar extends Thread{
                         }
                         if(i == player.getX() && dify <= 16){
                             xander.setVida(xander.getVida()-atk);
+                            System.out.println(xander.getVida());
                             bala.setIcon(new ImageIcon(getClass().getResource("/recursos/Off.png")));
                             break;
                         }
@@ -125,6 +127,7 @@ public class Disparar extends Thread{
                         }
                         if(i == player.getY() && difx <= 16){
                             xander.setVida(xander.getVida()-atk);
+                            System.out.println(xander.getVida());
                             bala.setIcon(new ImageIcon(getClass().getResource("/recursos/Off.png")));
                             break;
                         }
@@ -156,6 +159,7 @@ public class Disparar extends Thread{
                         }
                         if(i == player.getY() && difx <= 16){
                             xander.setVida(xander.getVida()-atk);
+                            System.out.println(xander.getVida());
                             bala.setIcon(new ImageIcon(getClass().getResource("/recursos/Off.png")));
                             break;
                         }

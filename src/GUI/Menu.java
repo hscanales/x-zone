@@ -90,11 +90,13 @@ public class Menu extends JFrame {
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
                 
+                
                 try {
                     new GO1().setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
             }
         });
         

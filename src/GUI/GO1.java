@@ -26,6 +26,7 @@ import javax.swing.JLabel;
 import personaje.Personaje;
 import personaje.Xander;
 import java.applet.AudioClip;
+import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
 import main.Main;
 
@@ -79,6 +80,7 @@ public class GO1 extends JFrame {
         container.add(enemigo3);
         container.add(enemigo4);
         container.add(balae);
+        container.add(key);
         container.add(fondo);
     }
     
@@ -109,7 +111,7 @@ public class GO1 extends JFrame {
         enemigo4.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
         //inv = new JButton();
         //inv.setBounds(920, 10, WIDTHB, HEIGHTB);
-        
+        key = new JLabel();
         fondo = new JLabel();
         fondo.setBounds(0, 0, 960, 608);
         fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/Mpa1.png")));
@@ -262,6 +264,8 @@ public class GO1 extends JFrame {
             return true;
         }
         if("3".equals(aux[x])&&f==true){
+            key.setBounds(32, 32, WIDTHP, HEIGHTP);
+            key.setIcon(new ImageIcon(getClass().getResource("/recursos/key_1.png")));
             zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
             zelda.play();
             flag2=11;

@@ -93,11 +93,14 @@ public class GOver extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 dispose();
+                
                 try {
                     new GO1().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(GOver.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
+                
             }
         });
         sa.addActionListener(new ActionListener(){
