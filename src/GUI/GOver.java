@@ -6,6 +6,7 @@
 package GUI;
 
 import javax.swing.JFrame;
+import main.Global;
 
 /**
  *
@@ -14,7 +15,7 @@ import javax.swing.JFrame;
 public class GOver extends JFrame {
     
     public GOver(){
-        
+        Global.setScore();
     }
     
     

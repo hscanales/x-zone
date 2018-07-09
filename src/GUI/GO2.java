@@ -25,6 +25,7 @@ import personaje.Personaje;
 import personaje.Xander;
 import java.applet.AudioClip;
 import javax.swing.JOptionPane;
+import main.Global;
 
 /**
  *

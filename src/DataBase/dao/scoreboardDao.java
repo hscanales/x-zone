@@ -25,7 +25,7 @@ public class scoreboardDao implements Metodos<Scoreboard> {
     private static final String SQL_UPDATE = "UPDATE Scoreboard SET score =? WHERE nickname=?";
     private static final String SQL_DELETE = "DELETE FROM Scoreboard WHERE nickname=?";
     private static final String SQL_READ = "SELECT * FROM Scoreboard WHERE nickname=?";
-    private static final String SQL_READALL = "SELECT Nickname,score from Score order by score desc ";
+    private static final String SQL_READALL = "SELECT Nickname,score from Score order by score asc ";
     private static final Conexion con = Conexion.conectar();
 
     @Override
@@ -127,7 +127,7 @@ public class scoreboardDao implements Metodos<Scoreboard> {
             s = con.getCnx().prepareStatement(SQL_READALL);
 
             rs = s.executeQuery(SQL_READALL);
-            System.out.println("entro");
+            //System.out.println("entro");
             while (rs.next()) {
                 all.add(new Scoreboard(rs.getString(1), rs.getInt(2)));
            }

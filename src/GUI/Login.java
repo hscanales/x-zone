@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import main.Global;
 
 /**
  *
@@ -65,6 +66,7 @@ public class Login extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0){
                 user = textF1.getText();
+                Global.nickname=user;
                 if(user.isEmpty()){
                     JFrame frame = new JFrame();
                     JOptionPane.showMessageDialog(frame, "Ingrese un Nickname para continuar", "Error de login",
