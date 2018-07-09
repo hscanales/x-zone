@@ -26,6 +26,7 @@ import javax.swing.JLabel;
 import personaje.Personaje;
 import personaje.Xander;
 import java.applet.AudioClip;
+import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
 import main.Global;
 import main.Main;
@@ -245,7 +246,7 @@ public class GO2 extends JFrame {
             return true;
         }
         if("3".equals(aux[x])&&f==true){
-            xe.setBounds(32, 32, WIDTHP, HEIGHTP);
+            xe.setBounds(32, 576, WIDTHP, HEIGHTP);
             xe.setIcon(new ImageIcon(getClass().getResource("/recursos/key.png")));
             zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
             zelda.play();

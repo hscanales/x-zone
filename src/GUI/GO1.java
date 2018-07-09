@@ -26,6 +26,7 @@ import javax.swing.JLabel;
 import personaje.Personaje;
 import personaje.Xander;
 import java.applet.AudioClip;
+import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
 import main.Main;
 
