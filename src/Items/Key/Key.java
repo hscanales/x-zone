@@ -6,6 +6,7 @@
 package Items.Key;
 
 import Items.Item;
+import java.net.URL;
 
 /**
  *
@@ -19,8 +20,9 @@ public class Key implements Item{
     }
 
     @Override
-    public int get() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public URL get() {
+        URL d = getClass().getResource("/recursos/key.png");
+     return d;
     }
 
     @Override
