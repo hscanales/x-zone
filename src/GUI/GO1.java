@@ -70,7 +70,7 @@ public class GO1 extends JFrame {
         container.add(enemigo4);
         container.add(balae);
         container.add(fondo);
-        container.add(key);
+        //container.add(key);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz1.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128, Xander, balae);
