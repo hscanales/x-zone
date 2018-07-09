@@ -46,7 +46,7 @@ public class GO1 extends JFrame {
     EnemigoMov emov1, emov2, emov3, emov4;
     
     public GO1() throws IOException{
-        super("Nivel 1");
+        super("NIVEL 1");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setResizable(false);
@@ -225,6 +225,14 @@ public class GO1 extends JFrame {
         if("1".equals(aux[x])){
             return true;
         }
+        if("2".equals(aux[x])){
+            dispose();
+            try {
+                    new GO2().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         return false;
     }
 }
