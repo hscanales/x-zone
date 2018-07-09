@@ -59,8 +59,6 @@ public class GO3 extends JFrame {
         this.setLocationRelativeTo(null);
         Formulario();
         JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame, "Final BOSS $6.99", "DLC",
-            JOptionPane.INFORMATION_MESSAGE);
         music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
         music.play();
         addKeyListener(new TAdapter());
