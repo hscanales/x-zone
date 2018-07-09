@@ -27,11 +27,11 @@ public static Inventary i = new Inventary();
      *
      */
     
-        /*JFrame login = new Login();
-        login.setVisible(true);*/
+        JFrame login = new Login();
+        login.setVisible(true);
         
-        JFrame g = new GOver();
-        g.setVisible(true);
+        /*JFrame g = new GOver();
+        g.setVisible(true);*/
         
     }
     
