@@ -59,6 +59,8 @@ public class GO3 extends JFrame {
         this.setLocationRelativeTo(null);
         Formulario();
         JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame, "Final BOSS $6.99  \n https://www.paypal.me/hectorcanalessv \n", "DLC",
+            JOptionPane.INFORMATION_MESSAGE);
         music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Toxicity [8 Bit Cover Tribute to System of a Down] - 8 Bit Universe.wav"));
         music.play();
         addKeyListener(new TAdapter());
@@ -69,9 +71,8 @@ public class GO3 extends JFrame {
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz3.txt");
         //emov1 = new EnemigoMov(enemigo1, personaje, 384, 480, 160, 320, Xander);
-        emov1.start();
-        JOptionPane.showMessageDialog(frame, "Final BOSS $6.99  \n https://www.paypal.me/hectorcanalessv \n", "DLC",
-            JOptionPane.INFORMATION_MESSAGE);
+        //emov1.start();
+
         
     }
     

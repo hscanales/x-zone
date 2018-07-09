@@ -16,7 +16,7 @@ import javax.swing.JLabel;
  *
  * @author MaPache
  */
-public class PersonajeMov extends Thread{
+public class PersonajeMov extends Thread {
     
     JLabel personaje;
     Personaje xander;

@@ -5,7 +5,7 @@
  */
 package main;
 
-import GUI.Login;
+import GUI.*;
 import GUI.ViewDatabase;
 import Inventary.Inventary;
 import Structures.Wall;
@@ -21,14 +21,17 @@ public static Inventary i = new Inventary();
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Global.setInicio();
+        //Global.setInicio();
 
     /**
      *
      */
     
-        JFrame login = new Login();
-        login.setVisible(true);
+        /*JFrame login = new Login();
+        login.setVisible(true);*/
+        
+        JFrame g = new GOver();
+        g.setVisible(true);
         
     }
     
