@@ -86,7 +86,7 @@ public class GO3 extends JFrame {
         bala.setBounds(0, 0, 64, 64);
         
         enemigo = new JLabel();
-        enemigo.setBounds(384, 160, WIDTHP, HEIGHTP);
+        enemigo.setBounds(424, 96, WIDTHP, HEIGHTP);
         enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/ENDown1.png")));
         
         fondo = new JLabel();

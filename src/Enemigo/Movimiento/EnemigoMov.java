@@ -30,7 +30,7 @@ public class EnemigoMov extends Thread{
     ArrayList<String[]> mapa;
     private int m = 32;
     private boolean flag = false;
-    public boolean seguido = false;
+    public boolean seguido = false, dispa = false;
     
     public EnemigoMov(JLabel enemigo, JLabel personaje, int x1, int x2, int y1, int y2, Personaje xander, JLabel bala){
         this.enemigo = enemigo;
@@ -188,7 +188,9 @@ public class EnemigoMov extends Thread{
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                
+                if(disp.disp){
+                    dispa = true;
+                }
             }
         }
     }
