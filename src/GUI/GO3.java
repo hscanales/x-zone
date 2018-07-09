@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import personaje.Personaje;
 import personaje.Xander;
 
@@ -53,6 +54,9 @@ public class GO3 extends JFrame {
         setSize(960,608);
         this.setLocationRelativeTo(null);
         Formulario();
+        JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame, "Final BOSS $6.99", "DLC",
+            JOptionPane.INFORMATION_MESSAGE);
         addKeyListener(new TAdapter());
         Container container = getContentPane();
         container.add(personaje);
