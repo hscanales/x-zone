@@ -55,7 +55,7 @@ public class GO1 extends JFrame {
         setResizable(false);
         setSize(960,608);
         this.setLocationRelativeTo(null);
-        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Glamour of the Kill - Blood Drunk (Official Music Video).wav"));
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Africa [8 Bit Tribute to Toto] - 8 Bit Universe.wav"));
         music.play();
         Formulario();
         addKeyListener(new TAdapter());
@@ -127,6 +127,7 @@ public class GO1 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Left"+contl+".png")));
                         personaje.setLocation(personaje.getX() - 10, personaje.getY());
                         contl++;
+                        Posxy();
                         if(contl == 4){
                             contl = 1;
                         }
@@ -147,6 +148,7 @@ public class GO1 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right"+contr+".png")));
                         personaje.setLocation(personaje.getX() + 10, personaje.getY());
                         contr++;
+                        Posxy();
                         if(contr == 4){
                             contr = 1;
                         }
@@ -167,6 +169,7 @@ public class GO1 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Up"+contu+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() - 10);
                         contu++;
+                        Posxy();
                         if(contu == 4){
                             contu = 1;
                         }
@@ -186,6 +189,7 @@ public class GO1 extends JFrame {
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Down"+contd+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() + 10);
+                        Posxy();
                         contd++;
                         if(contd == 4){
                             contd = 1;
@@ -220,6 +224,25 @@ public class GO1 extends JFrame {
                     disparar.start();
                 }
             }*/
+        }
+    }
+    
+    public void Posxy(){
+        if(emov1.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov1.pos.add(xy); 
+        }
+        if(emov2.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov2.pos.add(xy); 
+        }
+        if(emov3.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov3.pos.add(xy); 
+        }
+        if(emov4.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov4.pos.add(xy); 
         }
     }
     

@@ -56,7 +56,7 @@ public class GO2 extends JFrame {
         setResizable(false);
         setSize(960,608);
         this.setLocationRelativeTo(null);
-        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/115 Elena Siegman Call of Duty Black Ops - Kino Der Toten Easter Egg song Kevin Sherwood.wav"));
+        music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Take On Me (8 Bit Remix Cover Version) [Tribute to A-ha] - 8 Bit Universe.wav"));
         music.play();
         Formulario();
         addKeyListener(new TAdapter());
@@ -126,6 +126,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Left"+contl+".png")));
                         personaje.setLocation(personaje.getX() - 10, personaje.getY());
                         contl++;
+                        Posxy();
                         if(contl == 4){
                             contl = 1;
                         }
@@ -146,6 +147,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right"+contr+".png")));
                         personaje.setLocation(personaje.getX() + 10, personaje.getY());
                         contr++;
+                        Posxy();
                         if(contr == 4){
                             contr = 1;
                         }
@@ -166,6 +168,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Up"+contu+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() - 10);
                         contu++;
+                        Posxy();
                         if(contu == 4){
                             contu = 1;
                         }
@@ -186,6 +189,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Down"+contd+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() + 10);
                         contd++;
+                        Posxy();
                         if(contd == 4){
                             contd = 1;
                         }
@@ -200,46 +204,28 @@ public class GO2 extends JFrame {
             if (key == KeyEvent.VK_I){
                 new InventaryGui().setVisible(true);
             }
-            
-            if (key == KeyEvent.VK_1){
-                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
-                music.loop();
-            }
-            if (key == KeyEvent.VK_2){
-                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/DOLF & Yellow Claw - Vertigo (JAEGER Remix) www.my-free-mp3.net .wav"));
-                music.loop();
-            }
-            if (key == KeyEvent.VK_P){
-                try{
-                    music.stop();
-                }
-                catch(Exception f){
-                    JFrame frame = new JFrame();
-                    JOptionPane.showMessageDialog(frame, "No esta reproduciendo nada", "Error de reproduccion",
-                        JOptionPane.INFORMATION_MESSAGE);
-                }
-            /*if(key == KeyEvent.VK_SPACE){
-                if(right){
-                    disparar.Setter(1);
-                    disparar.start();
-                }
-                if(left){
-                    disparar.Setter(2);
-                    disparar.start();
-                }
-                if(up){
-                    disparar.Setter(3);
-                    disparar.start();
-                }
-                if(down){
-                    disparar.Setter(4);
-                    disparar.start();
-                }
-            }*/
+
         }
     }
-}
     
+    public void Posxy(){
+        if(emov1.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov1.pos.add(xy); 
+        }
+        if(emov2.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov2.pos.add(xy); 
+        }
+        if(emov3.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov3.pos.add(xy); 
+        }
+        if(emov4.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov4.pos.add(xy); 
+        }
+    }
     
     public boolean Posicion(float posx,float posy){
         //System.out.println(posy);
