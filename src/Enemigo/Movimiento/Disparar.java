@@ -7,6 +7,7 @@ package Enemigo.Movimiento;
 
 import Enemigo.Enemigo;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import personaje.Personaje;
 
@@ -24,6 +25,7 @@ public class Disparar extends Thread{
     int atk;
     int contf = 1;
     int dist = 150; 
+    JFrame GO1;
     public boolean flag = true, disp = false;
     
     public Disparar(JLabel enemigo, JLabel player, JLabel bala, Personaje xander, Enemigo enemy){

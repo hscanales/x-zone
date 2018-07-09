@@ -215,7 +215,9 @@ public class GO1 extends JFrame {
                 new InventaryGui().setVisible(true);
             }
             if(emov1.dispa || emov2.dispa || emov3.dispa || emov3.dispa){
-                
+                dispose();
+                GOver g = new GOver();
+                g.setVisible(true);
             }
 
             /*if(key == KeyEvent.VK_SPACE){
