@@ -7,9 +7,17 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 import main.Global;
 
 /**
@@ -19,8 +27,10 @@ import main.Global;
 public class GOver extends JFrame {
     public JLabel go,us,sc,us2,sc2;
     public JButton re, sa, ra;
+    public String user;
     public GOver(){
         super("Game Over");
+        this.user = Login.user;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setResizable(false);
@@ -32,10 +42,15 @@ public class GOver extends JFrame {
         container.add(go);
         container.add(us);
         container.add(sc);
-        
+        container.add(re);
+        container.add(sa);
+        container.add(ra);
+        container.add(re);
+        container.add(sa);
+        Eventos();
         //Global.setScore();
         
-        //Eventos();
+        
     }
     
     public void Tabla(){
@@ -46,20 +61,61 @@ public class GOver extends JFrame {
         us = new JLabel("USUARIO:");
         us.setFont(new java.awt.Font("Arial", 1, 40));
         us.setForeground(Color.white);
-        us.setBounds(75, 120, 400, 200);
+        us.setBounds(75, 100, 400, 200);
         sc = new JLabel("PUNTAJE:");
         sc.setFont(new java.awt.Font("Arial", 1, 40));
         sc.setForeground(Color.white);
-        sc.setBounds(75, 200, 400, 200);
+        sc.setBounds(75, 180, 400, 200);
         us2 = new JLabel();
         sc2 = new JLabel();
-        
+        re= new JButton("Reiniciar partida");
+        re.setBackground(Color.WHITE);
+        re.setContentAreaFilled(false);
+        re.setOpaque(true);
+        re.setBounds(340,350,250,75);
+        sa= new JButton("Salir del juego");
+        sa.setBackground(Color.WHITE);
+        sa.setContentAreaFilled(false);
+        sa.setOpaque(true);
+        sa.setBounds(340,450,250,75);
+        ra = new JButton("Rankings");
+        ra.setBackground(Color.WHITE);
+        ra.setContentAreaFilled(false);
+        ra.setOpaque(true);
+        ra.setBounds(825, 30, 100, 30);
         
         
     }
 
     public void Eventos() {
-        
+        re.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                dispose();
+                try {
+                    new GO1().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        sa.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                dispose();
+                System.exit(0);
+            }
+        });
+        ra.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                dispose();
+                new ViewDatabase().setVisible(true);
+            }
+        });
     }
     
     

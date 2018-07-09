@@ -43,7 +43,7 @@ public class GO1 extends JFrame {
     public int contr = 1, contl = 1, contu = 1, contd = 1;
     public Personaje Xander;
     public Xander jugador = new Xander();
-    public static boolean flag;
+    public static boolean flag,f=true;
     ArrayList<String[]> mapa;
     public float widht = 32, height = 32;
     public float posx, posy;
@@ -262,10 +262,11 @@ public class GO1 extends JFrame {
         if("1".equals(aux[x])){
             return true;
         }
-        if("3".equals(aux[x])){
+        if("3".equals(aux[x])&&f==true){
             zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
             zelda.play();
             flag2=11;
+            f=false;
             ItemFactory g = new ItemFactory();
             Item l = g.itemCreator("key");
             Main.i.addObject1(l);

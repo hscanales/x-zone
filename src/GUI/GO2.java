@@ -36,7 +36,7 @@ import main.Main;
  */
 public class GO2 extends JFrame {
     public int flag3 = 10;
-    public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4, balae;
+    public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4, balae,xe;
     public JLabel fondo;
     //public JButton inv;
     public int WIDTHP = 32, HEIGHTP = 32;
@@ -44,7 +44,7 @@ public class GO2 extends JFrame {
     public int contr = 1, contl = 1, contu = 1, contd = 1;
     public Personaje Xander;
     public Xander jugador = new Xander();
-    public static boolean flag;
+    public static boolean flag,f=true;
     ArrayList<String[]> mapa;
     public float widht = 32, height = 32;
     public float posx, posy;
@@ -64,13 +64,7 @@ public class GO2 extends JFrame {
         Formulario();
         addKeyListener(new TAdapter());
         Container container = getContentPane();
-        container.add(personaje);
-        container.add(enemigo1);
-        container.add(enemigo2);
-        container.add(enemigo3);
-        container.add(enemigo4);
-        container.add(balae);
-        container.add(fondo);
+
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz2.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 256, 384, 64, 160,  Xander, balae);
@@ -81,6 +75,14 @@ public class GO2 extends JFrame {
         emov3.start();
         emov4 = new EnemigoMov(enemigo4, personaje, 576, 640, 320, 384, Xander, balae);
         emov4.start();
+        container.add(personaje);
+        container.add(enemigo1);
+        container.add(enemigo2);
+        container.add(enemigo3);
+        container.add(enemigo4);
+        container.add(balae);
+        container.add(xe);
+        container.add(fondo);
     }
     
     public void Formulario(){
@@ -109,7 +111,7 @@ public class GO2 extends JFrame {
         enemigo4.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight1.png")));
         //inv = new JButton();
         //inv.setBounds(920, 10, WIDTHB, HEIGHTB);
-        
+        xe = new JLabel();
         fondo = new JLabel();
         fondo.setBounds(0, 0, 960, 608);
         fondo.setIcon(new ImageIcon(getClass().getResource("/recursos/Mpa2.png")));
@@ -242,10 +244,14 @@ public class GO2 extends JFrame {
         if("1".equals(aux[x])){
             return true;
         }
-        if("3".equals(aux[x])){
+        if("3".equals(aux[x])&&f==true){
+            //LAS FUNCIONES CON XE son la imagen, solo coloca la pos donde queres la llave
+            xe.setBounds(288, 544, WIDTHP, HEIGHTP);
+            xe.setIcon(new ImageIcon(getClass().getResource("/recursos/Up1.png")));
             zelda = java.applet.Applet.newAudioClip(getClass().getResource("/music/zelda.wav"));
             zelda.play();
             flag3=11;
+            f=false;
             ItemFactory g = new ItemFactory();
             Item l = g.itemCreator("bosskey");
             Main.i.addObject1(l);
