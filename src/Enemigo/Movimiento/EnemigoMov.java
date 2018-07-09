@@ -19,7 +19,7 @@ import personaje.Personaje;
 public class EnemigoMov extends Thread{
     
     public ArrayList<int[]> pos = new ArrayList();
-    private JLabel enemigo, player;
+    private JLabel enemigo, player, bala;
     private int x1, x2, y1, y2;
     private int contr = 1, contl = 1, contd = 1, contu = 1;
     private int vel, atk, pv;
@@ -31,9 +31,10 @@ public class EnemigoMov extends Thread{
     private boolean flag = false;
     public boolean seguido = false;
     
-    public EnemigoMov(JLabel enemigo, JLabel personaje, int x1, int x2, int y1, int y2, Personaje xander){
+    public EnemigoMov(JLabel enemigo, JLabel personaje, int x1, int x2, int y1, int y2, Personaje xander, JLabel bala){
         this.enemigo = enemigo;
         this.player = personaje;
+        this.bala = bala;
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
@@ -142,6 +143,10 @@ public class EnemigoMov extends Thread{
                     enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight"+contr+".png")));
                     contr = Caminando(contr);
                     enemigo.setLocation(x, y);
+                    SetDif();
+                    if(difx < 150 && dify < 32){
+                        
+                    }
                 }
                 if(enemigo.getX() > x){
                     enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/ELeft"+contl+".png")));
