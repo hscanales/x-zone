@@ -32,9 +32,7 @@ import main.Main;
 /**
  *
  * @author Joshua
- * 
  */
-
 public class GO1 extends JFrame {
     public int flag2=10;
     public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4, balae,key;
