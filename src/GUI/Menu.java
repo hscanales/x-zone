@@ -50,7 +50,6 @@ public class Menu extends JFrame {
         setResizable(false);
         setSize(720,480);
         this.setLocationRelativeTo(null);
-        addKeyListener(new TAdapter());
         Formulario();
         Container container = getContentPane();
         container.add(btn1);
@@ -58,9 +57,8 @@ public class Menu extends JFrame {
         container.add(btn3);
         container.add(nickname);
         container.add(fondo);
-        container.add(v);
         Eventos();
-    }
+    }   
     
     public void Formulario(){
         fondo = new JLabel();
@@ -73,27 +71,23 @@ public class Menu extends JFrame {
         nickname.setForeground(Color.white);
         btn2 = new JButton("Instrucciones");
         btn3 = new JButton("Salir");
-        v = new JComboBox();
-        v.addItem("Take on me");
-        v.addItem("Vertigo");
-        v.addItem("Stop music");
         music = java.applet.Applet.newAudioClip(getClass().getResource("/music/Gran Turismo 4 Music Game Rip - Main Menu Theme 3.wav"));
-        music.loop();
+        music.play();
         btn1.setBounds(290, 110, WIDTHB, HEIGHTB);
         btn2.setBounds(290, 220, WIDTHB, HEIGHTB);
         btn3.setBounds(290, 330, WIDTHB, HEIGHTB);
-        v.setBounds(620, 30, WIDTHB, HEIGHTB);
     }
     
     public void Eventos(){
         btn1.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                music.stop();
                 setVisible(false);
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
-                music.stop();
+                
                 try {
                     new GO1().setVisible(true);
                 } catch (IOException ex) {
@@ -122,57 +116,13 @@ public class Menu extends JFrame {
                 JComponent comp = (JComponent) e.getSource();
                 Window win = SwingUtilities.getWindowAncestor(comp);
                 win.dispose();
-                System.exit(1);
+                System.exit(0);
             }
         });
         
-        v.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                JComboBox cb = (JComboBox)e.getSource();
-                String music = (String)cb.getSelectedItem();
-                updateLabel(music);
-            }
-        });
     }
     
-        protected void updateLabel(String name) {
-            music.stop();
-            AudioClip music;
-            try{
-                if(name == "Take on me"){
-                    music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
-                    music.play();
-                }
-                if(name == "Vertigo"){
-                    music = java.applet.Applet.newAudioClip(getClass().getResource("/music/DOLF & Yellow Claw - Vertigo (JAEGER Remix) www.my-free-mp3.net .wav"));
-                    music.play();
-                }
-            }
-            catch(Exception e){
-                    JFrame frame = new JFrame();
-                    JOptionPane.showMessageDialog(frame, "No ha iniciado ninguna cancion", "Instrucciones",
-                        JOptionPane.INFORMATION_MESSAGE);
-            }
-    }
-    
-    
-    
-    private class TAdapter extends KeyAdapter {
-        
-        @Override
-        public void keyPressed(KeyEvent e) {
-            /*Disparo disparar = new Disparo(m, n, bala1, 10, 1);
-            int difx = (int) Math.sqrt(Math.pow(m.getX()-n.getX(), 2));
-            int dify = (int) Math.sqrt(Math.pow(m.getY()-n.getY(), 2));*/
-            int key = e.getKeyCode();
-            if (key == KeyEvent.VK_LEFT) {
-                JFrame frame = new JFrame();
-                JOptionPane.showMessageDialog(frame, "Colocar instrucciones aca :v", "Instrucciones",
-                        JOptionPane.INFORMATION_MESSAGE);
 
-                }
-            }
-        }
+    
     
 }

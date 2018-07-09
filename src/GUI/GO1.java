@@ -23,6 +23,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import personaje.Personaje;
 import personaje.Xander;
+import java.applet.AudioClip;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,6 +44,7 @@ public class GO1 extends JFrame {
     ArrayList<String[]> mapa;
     public float widht = 32, height = 32;
     public float posx, posy;
+    public AudioClip music;
     
     EnemigoMov emov1, emov2, emov3, emov4;
     
@@ -61,7 +64,6 @@ public class GO1 extends JFrame {
         container.add(enemigo3);
         container.add(enemigo4);
         container.add(fondo);
-        //container.add(inv);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz1.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 288, 384, 32, 128, Xander);
@@ -75,6 +77,7 @@ public class GO1 extends JFrame {
     }
     
     public void Formulario(){
+        
         jugador.crearPersonaje();
         Xander = jugador.getPersonaje();
         
@@ -104,6 +107,7 @@ public class GO1 extends JFrame {
         
         
     }
+    
     
     private class TAdapter extends KeyAdapter {
         
@@ -195,6 +199,25 @@ public class GO1 extends JFrame {
             }
             if (key == KeyEvent.VK_I){
                 new InventaryGui().setVisible(true);
+            }
+            
+            if (key == KeyEvent.VK_1){
+                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/a-ha - Take On Me www.my-free-mp3.net .wav"));
+                music.loop();
+            }
+            if (key == KeyEvent.VK_2){
+                music = java.applet.Applet.newAudioClip(getClass().getResource("/music/DOLF & Yellow Claw - Vertigo (JAEGER Remix) www.my-free-mp3.net .wav"));
+                music.loop();
+            }
+            if (key == KeyEvent.VK_P){
+                try{
+                    music.stop();
+                }
+                catch(Exception f){
+                    JFrame frame = new JFrame();
+                    JOptionPane.showMessageDialog(frame, "No esta reproduciendo nada", "Error de reproduccion",
+                        JOptionPane.INFORMATION_MESSAGE);
+                }
             }
             /*if(key == KeyEvent.VK_SPACE){
                 if(right){
