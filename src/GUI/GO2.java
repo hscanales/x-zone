@@ -125,6 +125,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Left"+contl+".png")));
                         personaje.setLocation(personaje.getX() - 10, personaje.getY());
                         contl++;
+                        Posxy();
                         if(contl == 4){
                             contl = 1;
                         }
@@ -145,6 +146,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right"+contr+".png")));
                         personaje.setLocation(personaje.getX() + 10, personaje.getY());
                         contr++;
+                        Posxy();
                         if(contr == 4){
                             contr = 1;
                         }
@@ -165,6 +167,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Up"+contu+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() - 10);
                         contu++;
+                        Posxy();
                         if(contu == 4){
                             contu = 1;
                         }
@@ -185,6 +188,7 @@ public class GO2 extends JFrame {
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Down"+contd+".png")));
                         personaje.setLocation(personaje.getX(), personaje.getY() + 10);
                         contd++;
+                        Posxy();
                         if(contd == 4){
                             contd = 1;
                         }
@@ -200,9 +204,27 @@ public class GO2 extends JFrame {
                 new InventaryGui().setVisible(true);
             }
 
+        }
     }
-}
     
+    public void Posxy(){
+        if(emov1.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov1.pos.add(xy); 
+        }
+        if(emov2.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov2.pos.add(xy); 
+        }
+        if(emov3.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov3.pos.add(xy); 
+        }
+        if(emov4.seguido){
+            int[] xy = {personaje.getX(), personaje.getY()};
+            emov4.pos.add(xy); 
+        }
+    }
     
     public boolean Posicion(float posx,float posy){
         //System.out.println(posy);
