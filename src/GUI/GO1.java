@@ -28,6 +28,7 @@ import personaje.Xander;
 import java.applet.AudioClip;
 import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
+import main.Global;
 import main.Main;
 
 /**
@@ -214,7 +215,10 @@ public class GO1 extends JFrame {
             if (key == KeyEvent.VK_I){
                 new InventaryGui().setVisible(true);
             }
-            if(emov1.dispa || emov2.dispa || emov3.dispa || emov3.dispa){
+            if(emov1.dispa || emov2.dispa || emov3.dispa || emov4.dispa){
+                dispose();            
+                GOver g = new GOver();   
+                g.setVisible(true);
                 
             }
 
@@ -276,6 +280,7 @@ public class GO1 extends JFrame {
             ItemFactory g = new ItemFactory();
             Item l = g.itemCreator("key");
             Main.i.addObject1(l);
+            Global.inicio+=50;
         }
         if("2".equals(aux[x])&&flag2==11){
             music.stop();

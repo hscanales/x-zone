@@ -216,6 +216,18 @@ public class GO3 extends JFrame {
         if("1".equals(aux[x])){
             return true;
         }
+        if("2".equals(aux[x])){
+            music.stop();
+            music=null;
+            JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame, "Todavia no es tiempo para tu pelea final, \n Gracias por jugar X-zone: Lost Glory BETA", "DLC",
+            JOptionPane.INFORMATION_MESSAGE);
+            dispose();
+            new GOver().setVisible(true);
+            }
         return false;
+        }
+        
     }
-}
+
+

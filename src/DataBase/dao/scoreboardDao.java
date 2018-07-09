@@ -21,11 +21,11 @@ import java.util.logging.*;
  */
 public class scoreboardDao implements Metodos<Scoreboard> {
 
-    private static final String SQL_INSERT = "INSERT INTO Scoreboard (nickname, score) VALUES (?, ?)";
-    private static final String SQL_UPDATE = "UPDATE Scoreboard SET score =? WHERE nickname=?";
-    private static final String SQL_DELETE = "DELETE FROM Scoreboard WHERE nickname=?";
-    private static final String SQL_READ = "SELECT * FROM Scoreboard WHERE nickname=?";
-    private static final String SQL_READALL = "SELECT Nickname,score from Score order by score asc ";
+    private static final String SQL_INSERT = "INSERT INTO Score (nickname, score) VALUES (?, ?)";
+    private static final String SQL_UPDATE = "UPDATE Scoreboard SET Score =? WHERE nickname=?";
+    private static final String SQL_DELETE = "DELETE FROM Score WHERE nickname=?";
+    private static final String SQL_READ = "SELECT * FROM Score WHERE nickname=?";
+    private static final String SQL_READALL = "SELECT Nickname,score from Score order by score desc ";
     private static final Conexion con = Conexion.conectar();
 
     @Override
