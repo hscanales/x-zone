@@ -26,6 +26,7 @@ public class EnemigoMov extends Thread{
     private int difx, dify;
     Soldado soldado;
     Enemigo enemy;
+    Personaje xander;
     ArrayList<String[]> mapa;
     private int m = 32;
     private boolean flag = false;
@@ -42,6 +43,7 @@ public class EnemigoMov extends Thread{
         soldado = new Soldado();
         soldado.CrearEnemigo();
         enemy = soldado.getEnemigo();
+        this.xander = xander;
         vel = enemy.getVelocidad();
         atk = (int) enemy.getAtaque().get(0);
         pv = xander.getVida();
@@ -134,41 +136,59 @@ public class EnemigoMov extends Thread{
         }catch (InterruptedException e) {
             e.printStackTrace();
         }
+        Disparar disp = new Disparar(enemigo, player, bala, xander, enemy);
+        disp.start();
         while(true){
             System.out.println("");
             while(cont < pos.size()){
                 x = pos.get(cont)[0];
                 y = pos.get(cont)[1];
-                if(enemigo.getX() < x){
+                if(enemigo.getX() < x && disp.flag){
                     enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/ERight"+contr+".png")));
                     contr = Caminando(contr);
                     enemigo.setLocation(x, y);
+                    cont++;
                     SetDif();
-                    if(difx < 150 && dify < 32){
-                        
+                    if((difx < 150 && dify <= 16) && enemigo.getX() < player.getX()){
+                        disp.setD(1);
                     }
                 }
-                if(enemigo.getX() > x){
+                if(enemigo.getX() > x && disp.flag){
                     enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/ELeft"+contl+".png")));
                     contl = Caminando(contl);
                     enemigo.setLocation(x, y);
+                    cont++;
+                    SetDif();
+                    if((difx < 150 && dify <= 16) && enemigo.getX() > player.getX()){
+                        disp.setD(2);
+                    }
                 }
-                if(enemigo.getY() < y){
+                if(enemigo.getY() < y && disp.flag){
                     enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/EDown"+contd+".png")));
                     contd = Caminando(contd);
                     enemigo.setLocation(x, y);
+                    cont++;
+                    SetDif();
+                    if((difx <= 16 && dify < 150) && enemigo.getY() < player.getY()){
+                        disp.setD(4);
+                    }
                 }
-                if(enemigo.getY() > y){
+                if(enemigo.getY() > y && disp.flag){
                     enemigo.setIcon(new ImageIcon(getClass().getResource("/recursos/EUp"+contu+".png")));
                     contu = Caminando(contu);
                     enemigo.setLocation(x, y);
+                    cont++;
+                    SetDif();
+                    if((difx <= 16 && dify < 150) && enemigo.getY() > player.getY()){
+                        disp.setD(3);
+                    }
                 }
                 try {
                     sleep(vel-25);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                cont++;
+                
             }
         }
     }

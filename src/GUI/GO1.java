@@ -132,7 +132,7 @@ public class GO1 extends JFrame {
                     posy = (personaje.getY()+16)/height;
                     if(Posicion(posx, posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Left"+contl+".png")));
-                        personaje.setLocation(personaje.getX() - 10, personaje.getY());
+                        personaje.setLocation(personaje.getX() - 8, personaje.getY());
                         contl++;
                         Posxy();
                         if(contl == 4){
@@ -153,7 +153,7 @@ public class GO1 extends JFrame {
                     posy = (personaje.getY()+16)/height;
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Right"+contr+".png")));
-                        personaje.setLocation(personaje.getX() + 10, personaje.getY());
+                        personaje.setLocation(personaje.getX() + 8, personaje.getY());
                         contr++;
                         Posxy();
                         if(contr == 4){
@@ -174,7 +174,7 @@ public class GO1 extends JFrame {
                     posy = (personaje.getY())/height;
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Up"+contu+".png")));
-                        personaje.setLocation(personaje.getX(), personaje.getY() - 10);
+                        personaje.setLocation(personaje.getX(), personaje.getY() - 8);
                         contu++;
                         Posxy();
                         if(contu == 4){
@@ -195,7 +195,7 @@ public class GO1 extends JFrame {
                     posy = (personaje.getY()+32)/height;
                     if(Posicion(posx,posy)){
                         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Down"+contd+".png")));
-                        personaje.setLocation(personaje.getX(), personaje.getY() + 10);
+                        personaje.setLocation(personaje.getX(), personaje.getY() + 8);
                         Posxy();
                         contd++;
                         if(contd == 4){
