@@ -33,7 +33,7 @@ import main.Global;
  */
 public class GO2 extends JFrame {
     
-    public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4;
+    public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4, balae;
     public JLabel fondo;
     //public JButton inv;
     public int WIDTHP = 32, HEIGHTP = 32;
@@ -66,16 +66,17 @@ public class GO2 extends JFrame {
         container.add(enemigo2);
         container.add(enemigo3);
         container.add(enemigo4);
+        container.add(balae);
         container.add(fondo);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz2.txt");
-        emov1 = new EnemigoMov(enemigo1, personaje, 256, 384, 64, 160,  Xander);
+        emov1 = new EnemigoMov(enemigo1, personaje, 256, 384, 64, 160,  Xander, balae);
         emov1.start();
-        emov2 = new EnemigoMov(enemigo2, personaje, 160, 224, 288, 416, Xander);
+        emov2 = new EnemigoMov(enemigo2, personaje, 160, 224, 288, 416, Xander, balae);
         emov2.start();
-        emov3 = new EnemigoMov(enemigo3, personaje, 416, 544, 192, 288, Xander);
+        emov3 = new EnemigoMov(enemigo3, personaje, 416, 544, 192, 288, Xander, balae);
         emov3.start();
-        emov4 = new EnemigoMov(enemigo4, personaje, 576, 640, 320, 384, Xander);
+        emov4 = new EnemigoMov(enemigo4, personaje, 576, 640, 320, 384, Xander, balae);
         emov4.start();
     }
     
@@ -87,6 +88,9 @@ public class GO2 extends JFrame {
         personaje.setBounds(288, 544, WIDTHP, HEIGHTP);
         personaje.setIcon(new ImageIcon(getClass().getResource("/recursos/Up1.png")));
         Xander.setPlayer(personaje);
+        
+        balae = new JLabel();
+        balae.setBounds(0, 0, WIDTHP, HEIGHTP);
         
         enemigo1 = new JLabel();
         enemigo1.setBounds(256, 64, WIDTHP, HEIGHTP);
