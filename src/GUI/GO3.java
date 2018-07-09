@@ -30,7 +30,7 @@ import personaje.Xander;
  */
 public class GO3 extends JFrame {
     
-    public JLabel personaje, enemigo1, enemigo2, enemigo3, enemigo4;
+    public JLabel personaje, enemigo1;
     public JLabel fondo;
     //public JButton inv;
     public int WIDTHP = 32, HEIGHTP = 32;
@@ -56,12 +56,8 @@ public class GO3 extends JFrame {
         addKeyListener(new TAdapter());
         Container container = getContentPane();
         container.add(personaje);
-        container.add(enemigo1);
-        container.add(enemigo2);
-        container.add(enemigo3);
-        container.add(enemigo4);
+        /*container.add(enemigo1);*/
         container.add(fondo);
-        //container.add(inv);
         flag = this.getFocusableWindowState();
         mapa = MapReader.reader("src/GUI/Mapa/matriz3.txt");
         emov1 = new EnemigoMov(enemigo1, personaje, 384, 480, 160, 320, Xander);
