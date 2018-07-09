@@ -28,6 +28,7 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import main.Main;
 
 /**
  *
@@ -46,6 +47,8 @@ public class InventaryGui extends JFrame{
 
     public InventaryGui(){
         super("Inventario");
+        Inventa = Main.i;
+       
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setResizable(false);
@@ -115,6 +118,8 @@ public class InventaryGui extends JFrame{
             
             Item l =g.itemCreator("key");
                 Inventa.addObject1(l);    
+                Main.i = Inventa; 
+                        
                 updateInventaryIcons();
             }
 
@@ -133,7 +138,7 @@ public class InventaryGui extends JFrame{
         addComponents();
         updateInventaryIcons();
         setLayout(null);
-        Inventa= new Inventary();
+        //Inventa= new Inventary();
         
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
     }
@@ -178,7 +183,8 @@ public class InventaryGui extends JFrame{
             @Override
             public void actionPerformed(ActionEvent ak) {
                 try{
-                Inventa.DropObject(Inventa.getObject(foo));    
+                Inventa.DropObject(Inventa.getObject(foo)); 
+                Main.i = Inventa;
                 }
                 catch(Exception e){
                     System.out.print("No hay objeto a eliminar");
@@ -246,6 +252,8 @@ public class InventaryGui extends JFrame{
         for(JButton Jactual: this.A){
             try{
              Jactual.setIcon(new ImageIcon(Inventa.getObject(cont).get()));
+             
+             Main.i = Inventa;
                 
             }
             catch(Exception e){

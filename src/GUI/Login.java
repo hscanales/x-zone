@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Inventary.Inventary;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Rectangle;
@@ -32,6 +33,7 @@ public class Login extends JFrame {
     public JLabel fondo;
     public JButton button;
     public static String user,us;
+   // private Inventary in;
     
     public Login(){
         super("Pantalla de Inicio");
