@@ -117,7 +117,7 @@ public class GO1 extends JFrame {
             
     }
     
-    
+   
     private class TAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
